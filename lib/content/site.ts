@@ -3,16 +3,29 @@ export const SITE = {
   tagline:
     "Delivering reliable, end-to-end transportation solutions with a commitment to quality, consistency, and trust.",
   email: "contact@tbmcarriers.com",
+  safetyEmail: "safety@tbmcarriers.com",
   copyrightYear: 2026,
   foundedYear: 1999,
+  trackingUrl: "https://tms-tbmc.loadtracking.com:5690/login",
 } as const;
 
-export const NAV_ITEMS = [
+export type NavItem = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
+export const NAV_ITEMS: readonly NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Compliance", href: "/compilance" },
-  { label: "Contact", href: "/contact" },
+  { label: "About Us", href: "/about" },
+  { label: "Logistics Services", href: "/services" },
+  { label: "Compliance & Security", href: "/compilance" },
+  {
+    label: "Shipment Tracking",
+    href: "https://tms-tbmc.loadtracking.com:5690/login",
+    external: true,
+  },
+  { label: "Contact Us", href: "/contact" },
 ] as const;
 
 export const FOOTER_LEGAL_ITEMS = [

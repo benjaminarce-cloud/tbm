@@ -23,7 +23,7 @@ export function MobileNav() {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="text-white hover:bg-white/10 hover:text-white lg:hidden"
             aria-label="Open menu"
           />
         }
@@ -41,22 +41,42 @@ export function MobileNav() {
           aria-label="Mobile"
           className="mt-4 flex h-full flex-col gap-1 px-4 pb-8"
         >
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="rounded-md px-3 py-2 text-base font-medium uppercase tracking-wider transition-colors hover:bg-white/10"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const className =
+              "rounded-md px-3 py-2 text-base font-medium uppercase tracking-wider transition-colors hover:bg-white/10";
+
+            if (item.external) {
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className={className}
+                >
+                  {item.label}
+                </a>
+              );
+            }
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className={className}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <Link
             href="/get-a-quote"
             onClick={() => setOpen(false)}
-            className="mt-4 rounded-full bg-primary px-6 py-3 text-center text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="mt-4 rounded-full bg-primary px-6 py-3 text-center text-base font-medium text-primary-foreground transition-colors hover:bg-primary/85"
           >
-            Get a Quote
+            Free Quote
           </Link>
           <div className="mt-auto flex flex-col gap-2 border-t border-white/10 pt-6">
             {FOOTER_LEGAL_ITEMS.map((item) => (

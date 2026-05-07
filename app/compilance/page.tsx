@@ -1,16 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck } from "lucide-react";
+import { Mail, Phone, ShieldCheck } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { CertGrid } from "@/components/site/cert-grid";
 import { Reveal } from "@/components/site/reveal";
 import { CERTIFICATIONS } from "@/lib/content/certifications";
+import { SITE } from "@/lib/content/site";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "Compliance" };
+export const metadata: Metadata = {
+  title: "Compliance & Security",
+  description:
+    "TBM Carriers is C-TPAT, FAST, OEA, and SmartWay certified. How our supply-chain security program protects every load.",
+};
 
-const ctpat = CERTIFICATIONS.find((c) => c.slug === "ctpat")!;
+const PRACTICES = [
+  "Coordinated supply-chain security with U.S. Customs and Border Protection (CBP) and partner agencies on both sides of the border.",
+  "Operating procedures that meet or exceed C-TPAT/OEA business and security standards across every facility and lane.",
+  "Active participation in international initiatives that prevent terrorism and protect cross-border trade.",
+  "Documented security training for employees, contractors, drivers, and partner service providers.",
+  "Controlled, monitored facilities for everyone who works with us — staff, customers, vendors, and visitors.",
+  "Defined incident response: investigate quickly, escalate to the right agencies, and update procedures based on findings.",
+];
 
 export default function CompliancePage() {
   return (
@@ -31,7 +43,7 @@ export default function CompliancePage() {
         </div>
         <div className="relative mx-auto flex min-h-[55svh] w-full max-w-7xl flex-col justify-center px-4 py-24 text-white md:px-8">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
-            Compliance
+            Compliance & Security
           </p>
           <h1 className="mt-4 max-w-4xl font-display text-display-md font-bold leading-[0.95] tracking-[-0.02em] text-balance sm:text-display-lg">
             Customs Trade Partnership Against Terrorism
@@ -43,47 +55,155 @@ export default function CompliancePage() {
         </div>
       </section>
 
-      {/* C-TPAT BAND */}
+      {/* C-TPAT / OEA EXPLAINER + SIDE PANEL */}
       <section className="bg-white py-24 md:py-32">
-        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-start gap-12 px-4 lg:grid-cols-[auto_1fr] md:px-8">
-          <Reveal className="flex h-20 w-20 items-center justify-center rounded-full bg-brand-red/10 text-brand-red">
-            <ShieldCheck className="h-10 w-10" aria-hidden="true" />
-          </Reveal>
-          <Reveal delay={0.1}>
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-12 px-4 lg:grid-cols-[1fr_360px] md:px-8">
+          <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
-              Building Experience
+              C-TPAT / OEA Certification
             </p>
             <h2 className="mt-3 font-display text-display-sm font-bold tracking-tight text-balance sm:text-display-md">
-              {ctpat.full}
+              Two programs, one security playbook
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-fg-muted md:text-lg">
-              {ctpat.description}
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-fg-muted md:text-lg">
-              C-TPAT membership is voluntary, demanding, and rare. We&apos;ve
-              held it because our security playbook — facility access controls,
-              driver vetting, container integrity, and IT segmentation — is
-              enforced, not aspirational.
-            </p>
+            <div className="mt-6 space-y-5 text-base leading-relaxed text-fg-muted md:text-lg">
+              <p>
+                <strong className="font-semibold text-foreground">
+                  TBM Carriers Inc.
+                </strong>{" "}
+                and{" "}
+                <strong className="font-semibold text-foreground">
+                  TBM Carriers de México, S.A. de C.V.
+                </strong>{" "}
+                are certified members of the Customs–Trade Partnership Against
+                Terrorism (C-TPAT) and the Operador Económico Autorizado (OEA).
+                Both programs strengthen supply-chain security through
+                collaboration between private industry and customs authorities.
+              </p>
+              <p>
+                As a trusted C-TPAT/OEA member, TBM Carriers meets the rigorous
+                security standards required to protect the integrity,
+                reliability, and safety of cross-border trade across North
+                America.
+              </p>
+              <p className="font-medium text-foreground">
+                Our day-to-day security practices, consistent with C-TPAT/OEA
+                criteria:
+              </p>
+            </div>
+            <ul className="mt-6 space-y-4">
+              {PRACTICES.map((practice) => (
+                <li
+                  key={practice}
+                  className="flex items-start gap-3 text-base leading-relaxed text-fg-muted md:text-lg"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-red"
+                  />
+                  <span>{practice}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          {/* Side panel: CTPAT logo + safety contact */}
+          <Reveal delay={0.1} as="div" className="lg:sticky lg:top-28 lg:self-start">
+            <aside className="rounded-2xl border border-black/5 bg-muted/40 p-8">
+              <div className="flex h-24 items-center justify-center rounded-xl bg-white p-4">
+                <Image
+                  src="/brand/ctpat-logo.jpg"
+                  alt="C-TPAT — Customs Trade Partnership Against Terrorism"
+                  width={200}
+                  height={120}
+                  className="h-full w-auto object-contain"
+                />
+              </div>
+              <p className="mt-6 text-sm italic leading-relaxed text-fg-muted">
+                We review and update our risk assessments and security
+                procedures on a regular cadence. For questions about our C-TPAT
+                or OEA program, get in touch:
+              </p>
+              <ul className="mt-6 space-y-3 text-sm">
+                <li className="flex items-start gap-3 text-foreground">
+                  <Phone
+                    className="mt-0.5 h-4 w-4 shrink-0 text-brand-red"
+                    aria-hidden="true"
+                  />
+                  <span>
+                    <a
+                      href="tel:+12107323400"
+                      className="font-medium hover:text-brand-red"
+                    >
+                      (210) 732-3400
+                    </a>{" "}
+                    <span className="text-fg-muted">ext. 5310</span>
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Mail
+                    className="mt-0.5 h-4 w-4 shrink-0 text-brand-red"
+                    aria-hidden="true"
+                  />
+                  <a
+                    href={`mailto:${SITE.safetyEmail}`}
+                    className="font-medium text-brand-red underline-offset-4 hover:underline"
+                  >
+                    {SITE.safetyEmail}
+                  </a>
+                </li>
+              </ul>
+            </aside>
           </Reveal>
         </div>
       </section>
 
-      {/* CERT GRID */}
+      {/* DETAILED CERT LIST (with descriptions per cert) */}
       <section className="bg-muted/30 py-24 md:py-32">
         <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
           <Reveal>
-            <p className="text-center text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
-              Partnerships & Certifications
+            <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
+              Building Experience
             </p>
-            <h2 className="mt-3 text-center font-display text-display-sm font-bold tracking-tight text-balance sm:text-display-md">
-              The full list, on the record
+            <h2 className="mt-3 max-w-3xl font-display text-display-sm font-bold tracking-tight text-balance sm:text-display-md">
+              Partnerships and certifications
             </h2>
           </Reveal>
-          <Reveal delay={0.1} className="mt-12">
-            <CertGrid />
-          </Reveal>
+          <ul className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+            {CERTIFICATIONS.map((cert, i) => (
+              <Reveal as="li" key={cert.slug} delay={i * 0.05}>
+                <div className="flex h-full gap-6 rounded-2xl border border-black/5 bg-white p-6 transition-all hover:border-brand-red/40 hover:shadow-md">
+                  <div className="flex h-20 w-32 shrink-0 items-center justify-center rounded-lg bg-muted/60 p-3">
+                    <Image
+                      src={cert.logo}
+                      alt={cert.full}
+                      width={140}
+                      height={64}
+                      className="h-full w-auto object-contain"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-widest text-brand-red">
+                      {cert.short}
+                    </p>
+                    <h3 className="mt-1 font-display text-base font-bold uppercase tracking-wider">
+                      {cert.full}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-fg-muted">
+                      {cert.description}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </ul>
         </div>
+      </section>
+
+      {/* QUICK STRIP for visual continuity with home */}
+      <section className="bg-white py-16">
+        <Reveal className="mx-auto w-full max-w-7xl px-4 md:px-8">
+          <CertGrid variant="strip" className="opacity-90" />
+        </Reveal>
       </section>
 
       {/* CTA */}
@@ -99,7 +219,7 @@ export default function CompliancePage() {
               "h-12 rounded-full px-8 text-base hover:bg-primary/85"
             )}
           >
-            Get a Quote
+            Free Quote
           </Link>
         </Reveal>
       </section>
