@@ -9,7 +9,7 @@ export function NavLinks() {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Main" className="hidden lg:flex lg:items-center lg:gap-7">
+    <nav aria-label="Main" className="hidden lg:flex lg:items-center lg:gap-8 xl:gap-10">
       {NAV_ITEMS.map((item) => {
         const isActive =
           !item.external &&

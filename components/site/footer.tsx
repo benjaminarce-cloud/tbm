@@ -13,7 +13,7 @@ export function Footer() {
     <footer className="bg-brand-indigo text-white">
       {/* CTA band */}
       <div className="border-b border-white/10 bg-brand-indigo-deep">
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-start justify-between gap-8 px-4 py-12 md:flex-row md:items-center md:px-8">
+        <div className="mx-auto flex w-full max-w-screen-2xl flex-col items-start justify-between gap-8 px-4 py-12 md:flex-row md:items-center md:px-8">
           <div className="max-w-md">
             <h2 className="font-display text-display-sm font-bold leading-tight">
               Ready to ship with confidence?
@@ -27,7 +27,7 @@ export function Footer() {
       </div>
 
       {/* Main columns */}
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-4 py-16 sm:grid-cols-2 lg:grid-cols-4 md:px-8">
+      <div className="mx-auto grid w-full max-w-screen-2xl grid-cols-1 gap-10 px-4 py-16 sm:grid-cols-2 lg:grid-cols-4 md:px-8">
         <div>
           <Image
             src="/brand/TBM-Carriers-Logo.jpg"
@@ -99,7 +99,7 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10">
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-start justify-between gap-3 px-4 py-6 text-xs text-fg-subtle md:flex-row md:items-center md:px-8">
+        <div className="mx-auto flex w-full max-w-screen-2xl flex-col items-start justify-between gap-3 px-4 py-6 text-xs text-fg-subtle md:flex-row md:items-center md:px-8">
           <p>
             © {SITE.copyrightYear} {SITE.name}. All rights reserved.
           </p>

@@ -24,7 +24,7 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-brand-indigo/85" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand-indigo-deep/70" />
         </div>
-        <div className="relative mx-auto flex min-h-[45svh] w-full max-w-7xl flex-col justify-center px-4 py-20 text-white md:px-8">
+        <div className="relative mx-auto flex min-h-[45svh] w-full max-w-screen-2xl flex-col justify-center px-4 py-20 text-white md:px-8">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
             Contact
           </p>
@@ -40,7 +40,7 @@ export default function ContactPage() {
 
       {/* DEPARTMENTS */}
       <section className="bg-muted/30 py-24 md:py-32">
-        <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
               Contact Our Team
@@ -89,7 +89,7 @@ export default function ContactPage() {
 
       {/* OFFICES */}
       <section className="bg-white py-24 md:py-32">
-        <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
               Our Facilities
@@ -162,7 +162,7 @@ export default function ContactPage() {
 
       {/* FACILITIES (extended) */}
       <section className="bg-brand-indigo py-24 text-white md:py-32">
-        <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
               Our Facilities

@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
+import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -48,22 +49,54 @@ function SubmitButton() {
   );
 }
 
+function HoneyPot() {
+  return (
+    <div
+      className="pointer-events-none absolute -top-[9999px] -left-[9999px] h-px w-px overflow-hidden opacity-0"
+      aria-hidden="true"
+    >
+      <label>
+        Website
+        <input
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          defaultValue=""
+        />
+      </label>
+    </div>
+  );
+}
+
 export function QuoteForm() {
   const [state, action] = useActionState(submitQuote, INITIAL);
 
   if (state.status === "success") {
     return (
-      <div className="rounded-2xl border border-green-200 bg-green-50 p-8">
-        <p className="font-display text-2xl font-bold uppercase tracking-wider text-green-900">
+      <div className="rounded-2xl border border-brand-red/20 bg-brand-red/[0.04] p-10">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-red/15">
+          <CheckCircle2
+            className="h-8 w-8 text-brand-red"
+            aria-hidden="true"
+          />
+        </div>
+        <p className="mt-6 font-display text-3xl font-bold uppercase tracking-wider text-foreground">
           Quote request received
         </p>
-        <p className="mt-3 text-green-800">{state.message}</p>
+        <p className="mt-3 text-fg-muted">{state.message}</p>
+        <p className="mt-6 text-sm text-fg-muted">
+          You&apos;ll hear from a dedicated CSR — they&apos;ll review your lane,
+          confirm equipment availability, and reply with a quote.
+        </p>
       </div>
     );
   }
 
   return (
-    <form action={action} className="space-y-10" noValidate>
+    <form action={action} className="relative space-y-10" noValidate>
+      <HoneyPot />
+
       {/* Contact */}
       <fieldset className="space-y-5">
         <SectionTitle>Your contact info</SectionTitle>
@@ -184,6 +217,7 @@ export function QuoteForm() {
             id="q-notes"
             name="notes"
             rows={4}
+            maxLength={5000}
             placeholder="Special handling, lane history, packaging notes…"
           />
         </Field>
@@ -199,6 +233,18 @@ export function QuoteForm() {
       )}
 
       <SubmitButton />
+
+      <p className="text-xs text-fg-muted">
+        Required fields are marked with an asterisk. We&apos;ll never share your
+        details — see our{" "}
+        <a
+          href="/privacy-policy"
+          className="text-brand-red underline-offset-4 hover:underline"
+        >
+          Privacy Policy
+        </a>
+        .
+      </p>
     </form>
   );
 }

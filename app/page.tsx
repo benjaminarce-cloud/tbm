@@ -40,7 +40,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-indigo-deep/70" />
         </div>
 
-        <div className="relative mx-auto flex min-h-[78svh] w-full max-w-7xl flex-col justify-center px-4 py-24 text-white md:px-8">
+        <div className="relative mx-auto flex min-h-[78svh] w-full max-w-screen-2xl flex-col justify-center px-4 py-24 text-white md:px-8">
           <p className="text-sm font-medium uppercase tracking-[0.25em] text-brand-red">
             {HOME.hero.eyebrow}
           </p>
@@ -71,7 +71,7 @@ export default function Home() {
 
         {/* Stats strip — animated counters */}
         <div className="relative border-t border-white/10 bg-brand-indigo-deep/80 backdrop-blur-md">
-          <div className="mx-auto grid w-full max-w-7xl grid-cols-1 divide-y divide-white/10 px-4 py-10 sm:grid-cols-3 sm:divide-x sm:divide-y-0 md:px-8">
+          <div className="mx-auto grid w-full max-w-screen-2xl grid-cols-1 divide-y divide-white/10 px-4 py-10 sm:grid-cols-3 sm:divide-x sm:divide-y-0 md:px-8">
             {HOME.stats.map((stat) => (
               <StatCounter
                 key={stat.label}
@@ -85,7 +85,7 @@ export default function Home() {
 
       {/* ABOUT BAND */}
       <section className="bg-white py-24 md:py-32">
-        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-4 lg:grid-cols-2 md:px-8">
+        <div className="mx-auto grid w-full max-w-screen-2xl grid-cols-1 items-center gap-12 px-4 lg:grid-cols-2 md:px-8">
           <Reveal className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted">
             <Image
               src={HOME.about.image}
@@ -125,7 +125,7 @@ export default function Home() {
 
       {/* CROSS-BORDER LOGISTICS SOLUTIONS */}
       <section className="bg-muted/30 py-24 md:py-32">
-        <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
               {HOME.crossBorder.eyebrow}
@@ -156,7 +156,7 @@ export default function Home() {
 
       {/* CROSS-BORDER DOCK OPERATIONS */}
       <section className="bg-white py-24 md:py-32">
-        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-4 lg:grid-cols-2 md:px-8">
+        <div className="mx-auto grid w-full max-w-screen-2xl grid-cols-1 items-center gap-12 px-4 lg:grid-cols-2 md:px-8">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
               {HOME.crossDock.eyebrow}
@@ -185,7 +185,7 @@ export default function Home() {
 
       {/* HOW IT WORKS */}
       <section className="bg-brand-indigo py-24 text-white md:py-32">
-        <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
               {HOME.howItWorks.eyebrow}
@@ -226,7 +226,7 @@ export default function Home() {
 
       {/* NETWORK */}
       <section className="bg-white py-24 md:py-32">
-        <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
               {HOME.network.eyebrow}
@@ -273,7 +273,7 @@ export default function Home() {
 
       {/* SERVICES (BENTO) */}
       <section className="bg-muted/30 py-24 md:py-32">
-        <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
               Our Services
@@ -302,7 +302,7 @@ export default function Home() {
 
       {/* WHY US */}
       <section className="bg-white py-24 md:py-32">
-        <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
               {HOME.whyUs.eyebrow}
@@ -336,7 +336,7 @@ export default function Home() {
 
       {/* CERT MARQUEE */}
       <section className="bg-brand-indigo py-16 text-white">
-        <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
           <p className="text-center text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
             Partners & Certifications
           </p>
@@ -358,7 +358,7 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-brand-indigo-deep/85" />
         </div>
-        <div className="relative mx-auto flex max-w-7xl flex-col items-center px-4 py-24 text-center text-white md:px-8 md:py-32">
+        <div className="relative mx-auto flex max-w-screen-2xl flex-col items-center px-4 py-24 text-center text-white md:px-8 md:py-32">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
               {HOME.finalCta.eyebrow}

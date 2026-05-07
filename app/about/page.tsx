@@ -29,7 +29,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-brand-indigo/85" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand-indigo-deep/70" />
         </div>
-        <div className="relative mx-auto flex min-h-[55svh] w-full max-w-7xl flex-col justify-center px-4 py-24 text-white md:px-8">
+        <div className="relative mx-auto flex min-h-[55svh] w-full max-w-screen-2xl flex-col justify-center px-4 py-24 text-white md:px-8">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
             {ABOUT.hero.eyebrow}
           </p>
@@ -44,7 +44,7 @@ export default function AboutPage() {
 
       {/* PILLARS */}
       <section className="bg-white py-24 md:py-32">
-        <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
           <ul className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {ABOUT.pillars.map((pillar, i) => {
               const Icon = PILLAR_ICONS[i];
@@ -68,7 +68,7 @@ export default function AboutPage() {
 
       {/* STORY */}
       <section className="bg-muted/30 py-24 md:py-32">
-        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-4 lg:grid-cols-2 md:px-8">
+        <div className="mx-auto grid w-full max-w-screen-2xl grid-cols-1 items-center gap-12 px-4 lg:grid-cols-2 md:px-8">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
               {ABOUT.story.eyebrow}
@@ -99,7 +99,7 @@ export default function AboutPage() {
 
       {/* FACILITIES */}
       <section className="bg-white py-24 md:py-32">
-        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-4 lg:grid-cols-2 md:px-8">
+        <div className="mx-auto grid w-full max-w-screen-2xl grid-cols-1 items-center gap-12 px-4 lg:grid-cols-2 md:px-8">
           <Reveal className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted">
             <Image
               src={ABOUT.facilities.image}
@@ -142,7 +142,7 @@ export default function AboutPage() {
 
       {/* CERTIFICATIONS */}
       <section className="bg-muted/30 py-24 md:py-32">
-        <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
           <Reveal>
             <p className="text-center text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
               Partnerships & Certifications
@@ -159,7 +159,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="bg-white py-20 md:py-24">
-        <Reveal className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 text-center md:px-8">
+        <Reveal className="mx-auto flex max-w-screen-2xl flex-col items-center gap-6 px-4 text-center md:px-8">
           <h2 className="font-display text-display-sm font-bold tracking-tight text-balance sm:text-display-md">
             Ready to ship with confidence?
           </h2>
