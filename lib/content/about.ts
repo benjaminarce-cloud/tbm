@@ -7,6 +7,32 @@ export const ABOUT = {
     bgImage: "/brand/tbm-c-9090.jpg",
   },
 
+  mvh: {
+    eyebrow: "Mission, Vision, History",
+    headline: "Twenty-five years, one direction",
+    items: [
+      {
+        label: "Mission",
+        body: "To provide competitive, customized logistics solutions that meet our clients' transportation needs through innovative processes, advanced technology, and a highly qualified team committed to delivering service with integrity, consistency, and excellence.",
+      },
+      {
+        label: "Vision",
+        body: "To be a leading transportation and logistics company recognized for excellence in service, financial strength, and long-term partnerships.",
+      },
+      {
+        label: "History",
+        body: "Since 1999, TBM Carriers has expanded its presence across the USMCA region. As an asset-based company with strategically located terminals throughout the United States and Mexico, we provide the infrastructure and expertise to support complex cross-border logistics needs.",
+      },
+    ],
+  },
+
+  pillarsIntro: {
+    eyebrow: "Built on expertise, technology, and people",
+    headline:
+      "The three pillars behind every TBM shipment",
+    body: "Every load that leaves our docks rides on the same foundation: a safety culture taken seriously, equipment maintained to exceed federal standards, and facilities built for cross-border operations.",
+  },
+
   pillars: [
     {
       title: "Safety",

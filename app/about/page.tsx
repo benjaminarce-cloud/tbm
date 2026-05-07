@@ -5,6 +5,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { CertGrid } from "@/components/site/cert-grid";
 import { Reveal } from "@/components/site/reveal";
 import { ABOUT } from "@/lib/content/about";
+import { FACILITIES } from "@/lib/content/site";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 
@@ -42,21 +43,60 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* PILLARS */}
+      {/* MISSION / VISION / HISTORY */}
       <section className="bg-white py-16 md:py-24 lg:py-32">
         <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
-          <ul className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <Reveal>
+            <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
+              {ABOUT.mvh.eyebrow}
+            </p>
+            <h2 className="mt-3 max-w-3xl font-display text-display-sm font-bold tracking-tight text-balance sm:text-display-md">
+              {ABOUT.mvh.headline}
+            </h2>
+          </Reveal>
+          <ul className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+            {ABOUT.mvh.items.map((item, i) => (
+              <Reveal as="li" key={item.label} delay={i * 0.08}>
+                <div className="h-full rounded-2xl border border-black/5 bg-muted/30 p-8">
+                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-red">
+                    {item.label}
+                  </p>
+                  <p className="mt-4 text-base leading-relaxed text-fg-muted md:text-lg">
+                    {item.body}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* BUILT ON EXPERTISE — PILLARS */}
+      <section className="bg-muted/30 py-16 md:py-24 lg:py-32">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
+          <Reveal>
+            <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
+              {ABOUT.pillarsIntro.eyebrow}
+            </p>
+            <h2 className="mt-3 max-w-3xl font-display text-display-sm font-bold tracking-tight text-balance sm:text-display-md">
+              {ABOUT.pillarsIntro.headline}
+            </h2>
+            <p className="mt-5 max-w-3xl text-base leading-relaxed text-fg-muted md:text-lg">
+              {ABOUT.pillarsIntro.body}
+            </p>
+          </Reveal>
+          <ul className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
             {ABOUT.pillars.map((pillar, i) => {
               const Icon = PILLAR_ICONS[i];
               return (
                 <Reveal as="li" key={pillar.title} delay={i * 0.1}>
-                  <div className="h-full rounded-2xl border border-black/5 bg-muted/30 p-8">
+                  <div className="h-full rounded-2xl border border-black/5 bg-white p-8">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-red/10 text-brand-red">
                       <Icon className="h-6 w-6" aria-hidden="true" />
                     </div>
-                    <h2 className="mt-6 font-display text-2xl font-bold uppercase tracking-wider">
+                    <h3 className="mt-6 font-display text-2xl font-bold uppercase tracking-wider">
                       {pillar.title}
-                    </h2>
+                    </h3>
                     <p className="mt-3 text-fg-muted">{pillar.body}</p>
                   </div>
                 </Reveal>
@@ -67,7 +107,7 @@ export default function AboutPage() {
       </section>
 
       {/* STORY */}
-      <section className="bg-muted/30 py-16 md:py-24 lg:py-32">
+      <section className="bg-white py-16 md:py-24 lg:py-32">
         <div className="mx-auto grid w-full max-w-screen-2xl grid-cols-1 items-center gap-12 px-4 lg:grid-cols-2 md:px-8">
           <Reveal>
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
@@ -98,28 +138,72 @@ export default function AboutPage() {
       </section>
 
       {/* FACILITIES */}
-      <section className="bg-white py-16 md:py-24 lg:py-32">
-        <div className="mx-auto grid w-full max-w-screen-2xl grid-cols-1 items-center gap-12 px-4 lg:grid-cols-2 md:px-8">
-          <Reveal className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted">
-            <Image
-              src={ABOUT.facilities.image}
-              alt=""
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-            />
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
-              {ABOUT.facilities.eyebrow}
-            </p>
-            <h2 className="mt-3 font-display text-display-sm font-bold tracking-tight text-balance sm:text-display-md">
-              {ABOUT.facilities.headline}
-            </h2>
-            <p className="mt-5 text-base leading-relaxed text-fg-muted md:text-lg">
-              {ABOUT.facilities.body}
-            </p>
-          </Reveal>
+      <section className="bg-muted/30 py-16 md:py-24 lg:py-32">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+            <Reveal className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted">
+              <Image
+                src={ABOUT.facilities.image}
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
+                {ABOUT.facilities.eyebrow}
+              </p>
+              <h2 className="mt-3 font-display text-display-sm font-bold tracking-tight text-balance sm:text-display-md">
+                {ABOUT.facilities.headline}
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-fg-muted md:text-lg">
+                {ABOUT.facilities.body}
+              </p>
+            </Reveal>
+          </div>
+
+          {/* US + MX address quick view */}
+          <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <Reveal>
+              <div className="h-full rounded-2xl border border-black/5 bg-white p-8">
+                <p className="text-xs font-semibold uppercase tracking-widest text-brand-red">
+                  {FACILITIES.us.region}
+                </p>
+                <p className="mt-3 font-display text-xl font-bold uppercase tracking-wider">
+                  {FACILITIES.us.legalName}
+                </p>
+                <ul className="mt-5 space-y-3">
+                  {FACILITIES.us.terminals.map((t) => (
+                    <li key={t.city} className="text-sm">
+                      <span className="font-medium">{t.city}</span>
+                      {t.address && (
+                        <span className="block text-fg-muted">{t.address}</span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <div className="h-full rounded-2xl border border-black/5 bg-white p-8">
+                <p className="text-xs font-semibold uppercase tracking-widest text-brand-red">
+                  {FACILITIES.mx.region}
+                </p>
+                <p className="mt-3 font-display text-xl font-bold uppercase tracking-wider">
+                  {FACILITIES.mx.legalName}
+                </p>
+                <ul className="mt-5 space-y-3">
+                  {FACILITIES.mx.offices.map((o) => (
+                    <li key={o.city} className="text-sm">
+                      <span className="font-medium">{o.city}</span>
+                      <span className="block text-fg-muted">{o.address}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 

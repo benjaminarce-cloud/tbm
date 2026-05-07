@@ -183,6 +183,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TEXAS / U.S. FREIGHT BAND */}
+      <section className="relative isolate overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src={HOME.texasBand.bgImage}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-brand-indigo/85" />
+        </div>
+        <div className="relative mx-auto flex max-w-screen-2xl flex-col items-center px-4 py-20 text-center text-white md:py-28 md:px-8">
+          <Reveal>
+            <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
+              {HOME.texasBand.eyebrow}
+            </p>
+            <h2 className="mt-4 mx-auto max-w-3xl font-display text-display-sm font-bold tracking-tight text-balance sm:text-display-md">
+              {HOME.texasBand.headline}
+            </h2>
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-fg-subtle md:text-lg">
+              {HOME.texasBand.body}
+            </p>
+            <Link
+              href="/contact"
+              className={cn(
+                buttonVariants(),
+                "mt-10 h-12 rounded-full px-8 text-base transition-all hover:bg-primary/85 active:scale-[0.98]"
+              )}
+            >
+              Contact Us
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
       {/* HOW IT WORKS */}
       <section className="bg-brand-indigo py-16 text-white md:py-24 lg:py-32">
         <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">

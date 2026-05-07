@@ -160,6 +160,47 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* COVERAGE MAPS */}
+      <section className="bg-muted/30 py-16 md:py-24 lg:py-32">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
+          <Reveal>
+            <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
+              Coverage Maps
+            </p>
+            <h2 className="mt-3 max-w-3xl font-display text-display-sm font-bold tracking-tight text-balance sm:text-display-md">
+              Where TBM moves freight
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-fg-muted md:text-lg">
+              Asset-based terminals, drop yards, and crossings on both sides of
+              the U.S.&ndash;Mexico border, plus extended Canadian crossings.
+            </p>
+          </Reveal>
+          <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <Reveal className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted">
+              <Image
+                src="/brand/mapa-tbm-ckluo-carriers.jpg"
+                alt="TBM Carriers U.S. coverage map"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </Reveal>
+            <Reveal
+              delay={0.08}
+              className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted"
+            >
+              <Image
+                src="/brand/tbm-map-mexico.jpg"
+                alt="TBM Carriers Mexico coverage map"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* FACILITIES (extended) */}
       <section className="bg-brand-indigo py-16 text-white md:py-24 lg:py-32">
         <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">

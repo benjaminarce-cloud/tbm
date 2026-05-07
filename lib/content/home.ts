@@ -1,9 +1,9 @@
 export const HOME = {
   hero: {
-    eyebrow: "Operating since 1999",
+    eyebrow: "Redefining logistics excellence",
     headline: "Delivering Quality & Reliability",
     subhead:
-      "Safe, secure, and reliable freight transportation across the United States, Mexico, and Canada.",
+      "Your trusted logistics partner for high-volume, reliable transportation. We connect 1,200+ cities across the United States, Mexico, and Canada — delivering consistency, speed, and confidence every mile.",
     bgImage: "/brand/TBM-1.jpg",
   },
 
@@ -93,8 +93,16 @@ export const HOME = {
     ],
   },
 
+  texasBand: {
+    eyebrow: "Texas to anywhere",
+    headline:
+      "Safe, secure, and reliable freight transportation across the United States and Texas",
+    body: "Looking for dependable freight transportation across the U.S.? TBM Carriers delivers secure, efficient, and high-performance logistics solutions backed by experience, advanced technology, and trusted operations throughout Texas and beyond.",
+    bgImage: "/brand/home_airport_sectionbg7.jpg",
+  },
+
   whyUs: {
-    eyebrow: "We check every box",
+    eyebrow: "Cleaner, stronger, more confident",
     headline:
       "End-to-end logistics solutions designed to deliver reliability, coverage, and confidence across every shipment.",
     features: [

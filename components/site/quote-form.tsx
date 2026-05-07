@@ -232,6 +232,25 @@ export function QuoteForm() {
         </p>
       )}
 
+      <p className="text-xs leading-relaxed text-fg-muted">
+        By submitting, you agree to receive communication at the phone number or
+        email provided. Msg and data rates may apply. See our{" "}
+        <a
+          href="/privacy-policy"
+          className="text-brand-red underline-offset-4 hover:underline"
+        >
+          Privacy Policy
+        </a>{" "}
+        and{" "}
+        <a
+          href="/terms-and-conditions"
+          className="text-brand-red underline-offset-4 hover:underline"
+        >
+          Terms of Service
+        </a>{" "}
+        for more info.
+      </p>
+
       <SubmitButton />
 
       <p className="text-xs text-fg-muted">
