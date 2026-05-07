@@ -2,11 +2,15 @@ export const SITE = {
   name: "TBM Carriers",
   tagline:
     "Delivering reliable, end-to-end transportation solutions with a commitment to quality, consistency, and trust.",
+  description:
+    "Cross-border logistics across the United States, Mexico, and Canada. Operating since 1999.",
   email: "contact@tbmcarriers.com",
   safetyEmail: "safety@tbmcarriers.com",
   copyrightYear: 2026,
   foundedYear: 1999,
   trackingUrl: "https://tms-tbmc.loadtracking.com:5690/login",
+  /** Production URL — override via NEXT_PUBLIC_SITE_URL when domain swap lands. */
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://tbm-ashen.vercel.app",
 } as const;
 
 export type NavItem = {
