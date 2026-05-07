@@ -53,7 +53,16 @@ export default function ContactPage() {
             {DEPARTMENTS.map((dept, i) => (
               <Reveal as="li" key={dept.name} delay={i * 0.08}>
                 <div className="h-full rounded-2xl border border-black/5 bg-white p-8 transition-colors hover:border-brand-red/30">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-brand-red">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-red/10">
+                    <Image
+                      src={dept.icon}
+                      alt=""
+                      width={64}
+                      height={64}
+                      className="h-10 w-10"
+                    />
+                  </div>
+                  <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-brand-red">
                     {dept.name}
                   </p>
                   <ul className="mt-5 space-y-4">

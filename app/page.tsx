@@ -238,6 +238,18 @@ export default function Home() {
               {HOME.network.body}
             </p>
           </Reveal>
+          <Reveal
+            delay={0.1}
+            className="relative mx-auto mt-12 aspect-square w-full max-w-3xl overflow-hidden rounded-2xl bg-muted"
+          >
+            <Image
+              src="/brand/map-tbm-logistics.jpg"
+              alt="TBM Carriers North American network map"
+              fill
+              sizes="(max-width: 1024px) 100vw, 768px"
+              className="object-cover"
+            />
+          </Reveal>
           <ul className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {HOME.network.crossings.map((c, i) => (
               <Reveal

@@ -122,6 +122,7 @@ export const FACILITIES = {
 export const DEPARTMENTS = [
   {
     name: "Sales",
+    icon: "/brand/TBM-iconos-sales.png",
     contacts: [
       { name: "Gerardo Villarreal", email: "gerardo@tbmcarriers.com" },
       { name: "Gilberto Mejia", email: "gilberto.mejia@tbmcarriers.com" },
@@ -129,12 +130,20 @@ export const DEPARTMENTS = [
   },
   {
     name: "Customer Service",
+    icon: "/brand/TBM-iconos-custumer.png",
     contacts: [
       { name: "Eva Pamela Jimenez", email: "evap.jimenez@tbmcarriers.com" },
     ],
   },
   {
     name: "Human Resources",
+    icon: "/brand/TBM-iconos-hr.png",
     contacts: [{ name: "HR Department", email: "recruit@tbmcarriers.com" }],
   },
+] as const;
+
+export const TECH_PARTNERS = [
+  { name: "Samsara", logo: "/brand/tbm-samsara.avif" },
+  { name: "SmartDrive", logo: "/brand/tbm-smartdrive.avif" },
+  { name: "McLeod", logo: "/brand/tbm-mcload.avif" },
 ] as const;

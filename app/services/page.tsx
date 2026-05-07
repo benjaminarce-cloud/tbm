@@ -8,6 +8,7 @@ import {
   SERVICES_TECH,
   SERVICE_FEATURES,
 } from "@/lib/content/services";
+import { TECH_PARTNERS } from "@/lib/content/site";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 
@@ -142,6 +143,25 @@ export default function ServicesPage() {
               </Reveal>
             ))}
           </ul>
+
+          {/* Partner logos */}
+          <Reveal delay={0.2} className="mt-16">
+            <p className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-fg-subtle">
+              Powered by industry-leading platforms
+            </p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-12 grayscale opacity-80 transition-[opacity,filter] hover:opacity-100 hover:grayscale-0">
+              {TECH_PARTNERS.map((p) => (
+                <Image
+                  key={p.name}
+                  src={p.logo}
+                  alt={p.name}
+                  width={140}
+                  height={48}
+                  className="h-10 w-auto"
+                />
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
