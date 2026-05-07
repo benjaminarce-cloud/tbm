@@ -64,8 +64,8 @@ export function Header() {
               alt="TBM Carriers"
               width={1200}
               height={324}
-              className="h-11 w-auto md:h-14"
-              style={{ width: "auto", height: "auto" }}
+              sizes="(max-width: 768px) 160px, 200px"
+              className="h-9 w-auto md:h-11"
               priority
             />
           </Link>

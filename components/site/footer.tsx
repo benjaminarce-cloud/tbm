@@ -34,8 +34,8 @@ export function Footer() {
             alt="TBM Carriers"
             width={1200}
             height={324}
-            className="h-12 w-auto"
-            style={{ width: "auto", height: "auto" }}
+            sizes="180px"
+            className="h-10 w-auto"
           />
           <p className="mt-6 text-sm leading-relaxed text-fg-subtle">
             {SITE.tagline}
