@@ -30,11 +30,11 @@ export function Footer() {
       <div className="mx-auto grid w-full max-w-screen-2xl grid-cols-1 gap-10 px-4 py-16 sm:grid-cols-2 lg:grid-cols-4 md:px-8">
         <div>
           <Image
-            src="/brand/TBM-Carriers-Logo.jpg"
+            src="/brand/TBM-2.png"
             alt="TBM Carriers"
-            width={120}
-            height={48}
-            className="h-10 w-auto brightness-0 invert"
+            width={1200}
+            height={324}
+            className="h-12 w-auto"
             style={{ width: "auto", height: "auto" }}
           />
           <p className="mt-6 text-sm leading-relaxed text-fg-subtle">

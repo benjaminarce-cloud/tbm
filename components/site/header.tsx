@@ -60,10 +60,10 @@ export function Header() {
             aria-label="TBM Carriers — home"
           >
             <Image
-              src="/brand/TBM-Carriers-Logo-1.png"
+              src="/brand/TBM-2.png"
               alt="TBM Carriers"
-              width={180}
-              height={64}
+              width={1200}
+              height={324}
               className="h-11 w-auto md:h-14"
               style={{ width: "auto", height: "auto" }}
               priority

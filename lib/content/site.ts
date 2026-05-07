@@ -58,7 +58,7 @@ export const FACILITIES = {
     },
     terminals: [
       { city: "Calexico, CA", address: "363 Nina Lee, Calexico, CA 92231" },
-      { city: "Nogales, AZ" },
+      { city: "Nogales, AZ", address: undefined },
       { city: "Del Rio, TX", address: "108 Frontera, Del Rio, TX 78840" },
       { city: "Laredo, TX", address: "8402 Killam Industrial Blvd, Laredo, TX 78405" },
     ],
