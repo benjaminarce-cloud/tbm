@@ -6,6 +6,9 @@ export const SITE = {
     "Cross-border logistics across the United States, Mexico, and Canada. Operating since 1999.",
   email: "contact@tbmcarriers.com",
   safetyEmail: "safety@tbmcarriers.com",
+  // Click-to-send "Contact Sales" target. Kept in code, never rendered as text.
+  // Change this if your sales inbox differs.
+  salesEmail: "sales@tbmcarriers.com",
   copyrightYear: 2026,
   foundedYear: 1999,
   trackingUrl: "https://tms-tbmc.loadtracking.com:5690/login",
@@ -21,14 +24,9 @@ export type NavItem = {
 
 export const NAV_ITEMS: readonly NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Logistics Services", href: "/services" },
+  { label: "Network & Services", href: "/services" },
+  { label: "Know Us", href: "/about" },
   { label: "Compliance & Security", href: "/compilance" },
-  {
-    label: "Shipment Tracking",
-    href: "https://tms-tbmc.loadtracking.com:5690/login",
-    external: true,
-  },
   { label: "Contact Us", href: "/contact" },
 ] as const;
 
@@ -42,13 +40,13 @@ export const OFFICES = [
     region: "United States",
     legalName: "TBM Carriers Inc.",
     address: ["5718 University Heights Blvd, Suite 204", "San Antonio, TX 78249"],
-    phones: ["(210) 732-3400", "(800) 826-3705"],
+    phones: ["+1 (210) 732-3400", "+1 (800) 826-3705"],
   },
   {
     region: "Mexico",
     legalName: "TBM Carriers México S.A. de C.V.",
     address: ["Madero 1590", "Col. Nueva", "Mexicali, México 21000"],
-    phones: ["(686) 555-7029", "(800) 732-7506"],
+    phones: ["+52 (686) 555-7029", "+52 (800) 732-7506"],
   },
 ] as const;
 
@@ -61,9 +59,9 @@ export const FACILITIES = {
       address: ["5718 University Heights Blvd, Suite 204", "San Antonio, TX 78249"],
     },
     terminals: [
-      { city: "Calexico, CA", address: "363 Nina Lee, Calexico, CA 92231" },
+      { city: "Calexico, CA", address: "363 Nina Lee Ln, Calexico, CA 92231" },
       { city: "Nogales, AZ", address: undefined },
-      { city: "Del Rio, TX", address: "108 Frontera, Del Rio, TX 78840" },
+      { city: "Del Rio, TX", address: "108 Frontera Rd, Del Rio, TX 78840" },
       { city: "Laredo, TX", address: "8402 Killam Industrial Blvd, Laredo, TX 78405" },
     ],
     dropYards: [
@@ -72,10 +70,14 @@ export const FACILITIES = {
       "El Paso, TX",
       "Hopkinsville, KY",
       "Charlotte, NC",
+      "Linwood, NC",
       "Indianapolis, IN",
       "Batesville, IN",
+      "Channahon, IL",
       "Troy, OH",
       "Detroit, MI",
+      "Atlanta, GA",
+      "Dallas, TX",
     ],
     borderCrossings: [
       "Otay Mesa, CA",
@@ -97,9 +99,34 @@ export const FACILITIES = {
   mx: {
     region: "Mexico",
     legalName: "TBM Carriers México S.A. de C.V.",
+    headquartersCity: "Mexicali, B.C.",
+    /** Operational facilities with street addresses */
+    facilities: [
+      {
+        city: "Mexicali, B.C.",
+        address: "Carretera Aeropuerto 4001, Col. Abelardo",
+      },
+      {
+        city: "Cd. Acuña, Coah.",
+        address: "Carretera Acuña–Zaragoza",
+      },
+      {
+        city: "Piedras Negras, Coah.",
+        address: "Ampliación Blvd. Venustiano Carranza 301, CP 26170",
+      },
+      {
+        city: "Nuevo Laredo, Tamps.",
+        address: "Carretera Nuevo Laredo–Piedras Negras Km 12.3",
+      },
+      {
+        city: "Querétaro, Qro.",
+        address: "Blvd. Bernardo Quintana #7001, Torre A1, Piso 8",
+      },
+    ],
+    /** Corporate sales & operations offices */
     offices: [
       {
-        city: "Mexicali, BC",
+        city: "Mexicali, B.C. (Corporate)",
         address: "Av. Madero #1590, Col. Nueva, CP 21100",
       },
       {
@@ -111,15 +138,16 @@ export const FACILITIES = {
         address: "Av. Industrialización No 7, Oficina 302, Fracc. Zona Industrial, CP 76160",
       },
     ],
-    borderCrossings: [
-      "Tecate, BC",
-      "Mexicali, BC",
+    /** Border terminals */
+    terminals: [
+      "Tecate, B.C.",
+      "Mexicali, B.C.",
       "Nogales, Son.",
-      "Acuña, Coah.",
+      "Cd. Acuña, Coah.",
       "Piedras Negras, Coah.",
       "Nuevo Laredo, Tamps.",
     ],
-    maintenance: ["Mexicali, BC", "Acuña, Coah.", "Nuevo Laredo, Tamps."],
+    maintenance: ["Mexicali, B.C.", "Cd. Acuña, Coah.", "Nuevo Laredo, Tamps."],
   },
 } as const;
 

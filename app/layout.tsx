@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Kanit, Geist } from "next/font/google";
+import { Kanit } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -7,15 +7,15 @@ import { cn } from "@/lib/utils";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { MobileCtaBar } from "@/components/site/mobile-cta-bar";
+import { ScrollProgress } from "@/components/site/scroll-progress";
 import { SITE } from "@/lib/content/site";
-
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 const kanit = Kanit({
   variable: "--font-kanit",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-  style: ["normal", "italic"],
+  // Only the weights actually used — fewer preloads, no console warnings.
+  // 800/900 power the thick display headlines (matching tbmcarriers.com).
+  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
@@ -81,14 +81,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(
-        "h-full antialiased",
-        kanit.variable,
-        "font-sans",
-        geist.variable
-      )}
+      className={cn("h-full antialiased", kanit.variable, "font-sans")}
     >
       <body className="flex min-h-full flex-col">
+        <ScrollProgress />
         <Header />
         <main className="flex flex-1 flex-col">{children}</main>
         <Footer />

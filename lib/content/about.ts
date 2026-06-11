@@ -36,24 +36,24 @@ export const ABOUT = {
   pillars: [
     {
       title: "Safety",
-      body: "Safety is the highest priority — embedded in our policies, procedures, and daily operations. Every employee, driver, customer, and partner depends on it, and we treat it like a load that can never be late.",
+      body: "The safety of our employees, customers, and the public is our highest priority. At TBM Carriers, safety is a core principle embedded in our policies, procedures, and daily operations.",
     },
     {
       title: "Equipment",
-      body: "Late-model Kenworth and International tractors on a three-year replacement cycle, maintained in-house by certified technicians. We exceed federal safety and emissions standards because the alternative is downtime.",
+      body: "Our fleet consists of late-model Kenworth and International tractors, refreshed on a three-year replacement cycle and maintained to exceed federal safety and emissions standards by certified in-house technicians and authorized service providers.",
     },
     {
       title: "Facilities",
-      body: "Strategically located along the U.S.–Mexico border with advanced surveillance, controlled access, and on-site security 24/7. Designed for safe, efficient cross-border operations at the lanes that move the most freight.",
+      body: "Our strategically located facilities along the U.S.–Mexico border are secured with advanced surveillance systems and controlled access points, continuously monitored by trained security personnel to ensure safe, efficient, and reliable operations.",
     },
   ],
 
   story: {
     eyebrow: "Building Experience",
-    headline: "From one truck to a cross-border network",
+    headline: "A growing network across the USMCA region",
     body: [
-      "TBM Carriers started in 1999 with a simple bet: that asset-based cross-border logistics — owning the trucks, the trailers, and the terminals — would beat the broker-led model on consistency and accountability.",
-      "Twenty-five years later, we operate across the United States, Mexico, and Canada with a dedicated fleet, in-house maintenance shops, and a customer service team that treats every shipment like it's the only one.",
+      "Since 1999, TBM Carriers has expanded its presence across the United States, Mexico, and Canada — an asset-based company with strategically located terminals that provide the infrastructure and expertise to support complex cross-border logistics needs.",
+      "We combine advanced technology, efficient processes, and a highly qualified team to deliver dependable service and operational excellence across every shipment.",
     ],
     image: "/brand/tbm-c-4.jpg",
   },
@@ -61,7 +61,7 @@ export const ABOUT = {
   facilities: {
     eyebrow: "Our Facilities",
     headline: "Terminals on both sides of the border",
-    body: "Asset-based means we control the network — not just the load. Our terminals, yards, and shops are co-located with the major U.S.–Mexico crossings to keep your freight moving when others get stuck.",
+    body: "Our facilities are strategically located along the U.S.–Mexico border. All entrances and exit gates are secured with advanced surveillance and access control systems, monitored by trained security personnel. This infrastructure ensures safe, efficient operations and reflects our commitment to quality and safety.",
     image: "/brand/TBM-C-40.jpg",
   },
 

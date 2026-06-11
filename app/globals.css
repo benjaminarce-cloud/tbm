@@ -14,19 +14,20 @@
   --color-fg-muted: #626262;
   --color-fg-subtle: #b5b4c7;
 
-  /* Typography */
-  --font-sans: var(--font-sans);
+  /* Typography — Kanit site-wide to match tbmcarriers.com */
+  --font-sans: var(--font-kanit);
   --font-display: var(--font-kanit);
   --font-heading: var(--font-kanit);
 
-  /* Display scale — modular, tighter than BeTheme's ad-hoc ladder */
-  --text-display-sm: 2rem;
+  /* Display scale — fluid (mobile-first). Each clamp reaches its ceiling by
+     ~1150px, so standard desktop (1280px+) renders the original fixed sizes. */
+  --text-display-sm: clamp(1.625rem, 1.3rem + 1vw, 2rem);
   --text-display-sm--line-height: 1.1;
-  --text-display-md: 3rem;
+  --text-display-md: clamp(2rem, 1.35rem + 2.3vw, 3rem);
   --text-display-md--line-height: 1.05;
-  --text-display-lg: 4.5rem;
+  --text-display-lg: clamp(2.5rem, 1.55rem + 4.1vw, 4.5rem);
   --text-display-lg--line-height: 1;
-  --text-display-xl: 6rem;
+  --text-display-xl: clamp(2.875rem, 1.6rem + 6.1vw, 6rem);
   --text-display-xl--line-height: 0.95;
 
   /* shadcn token bridge */
@@ -147,15 +148,72 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Avoid horizontal scroll from decorative glow/aurora layers */
+    overflow-x: clip;
   }
   html {
     @apply font-sans;
+    /* No global smooth-scroll: it animates programmatic scroll restores
+       (e.g. the mobile menu's scroll-lock) and made the page glide on open.
+       Smooth motion is opt-in via JS where intended (back-to-top, map focus). */
+    /* Account for the sticky header when jumping to in-page anchors */
+    scroll-padding-top: 6rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Brand text selection */
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-brand-red) 85%, black);
+    color: #fff;
+  }
+
+  /* Refined dark-aware scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--color-brand-indigo) 55%, transparent)
+      transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--color-brand-indigo) 45%, transparent);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in oklab, var(--color-brand-red) 70%, transparent);
+    background-clip: padding-box;
   }
 }
 
-/* Marquee animation for the cert strip */
+/* ----------------------------------------------------------------------------
+   Motion system — animation tokens map to Tailwind `animate-*` utilities.
+   Keyframes are defined at the top level (Tailwind v4 convention).
+---------------------------------------------------------------------------- */
 @theme inline {
   --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  --animate-aurora: aurora 18s ease-in-out infinite;
+  --animate-gradient-x: gradient-x 6s ease infinite;
+  --animate-shimmer: shimmer 2.4s linear infinite;
+  --animate-shine: shine 5s ease-in-out infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 11s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 3.5s ease-in-out infinite;
+  --animate-spin-slow: spin 14s linear infinite;
+  --animate-scroll-cue: scroll-cue 2s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.6s ease both;
+  --animate-rise: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-corridor: corridor-flow 3.2s linear infinite;
+}
+
+/* Freight flowing along a dashed SVG corridor (dash period = 3.4 units) */
+@keyframes corridor-flow {
+  to {
+    stroke-dashoffset: -6.8;
+  }
 }
 
 @keyframes marquee {
@@ -167,8 +225,227 @@
   }
 }
 
+@keyframes aurora {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.55;
+  }
+  33% {
+    transform: translate3d(3%, -4%, 0) scale(1.12);
+    opacity: 0.75;
+  }
+  66% {
+    transform: translate3d(-3%, 3%, 0) scale(0.95);
+    opacity: 0.6;
+  }
+}
+
+@keyframes gradient-x {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -200% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+/* Diagonal sheen sweeping across a surface (buttons, cards) */
+@keyframes shine {
+  0% {
+    transform: translateX(-120%) skewX(-12deg);
+  }
+  60%,
+  100% {
+    transform: translateX(220%) skewX(-12deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes scroll-cue {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(9px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Utilities — modern surface treatments used across the site.
+---------------------------------------------------------------------------- */
+
+/* Frosted glass surface (dark UI) */
+@utility glass {
+  background-color: color-mix(in oklab, var(--color-brand-indigo) 62%, transparent);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+}
+
+/* Marker for sections that layer a decorative `grain-layer` child.
+   MUST NOT set `position` — that overrode `position: fixed` on the mobile
+   menu dialog and dropped it into normal flow at the bottom of the page.
+   Call sites pair this with explicit `relative isolate`. */
+@utility grain {
+  isolation: isolate;
+}
+@utility grain-layer {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+/* Brand gradient text (works on light backgrounds) */
+@utility text-gradient-brand {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-brand-red),
+    #ff8a6e 55%,
+    var(--color-brand-red)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Light gradient text for dark backgrounds (headline shine) */
+@utility text-gradient-light {
+  background-image: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ffffff 55%,
+    color-mix(in oklab, var(--color-brand-indigo) 30%, #ffffff) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Faint dotted/grid backdrop for sections */
+@utility bg-grid {
+  background-image: radial-gradient(
+    color-mix(in oklab, var(--color-brand-indigo) 22%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+}
+
+/* Animated conic gradient border — wrap content in a child with its own bg */
+@utility ring-beam {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Sheen that sweeps across an element on hover (CTAs, cards) */
+@utility shine-hover {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      110deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.35) 50%,
+      transparent 70%
+    );
+    transform: translateX(-160%) skewX(-12deg);
+    transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+  &:hover::after {
+    transform: translateX(160%) skewX(-12deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
+  .shine-hover::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-aurora,
+  .animate-gradient-x,
+  .animate-shimmer,
+  .animate-shine,
+  .animate-float,
+  .animate-float-slow,
+  .animate-pulse-glow,
+  .animate-spin-slow,
+  .animate-scroll-cue,
+  .animate-rise,
+  .animate-fade-in,
+  .animate-corridor {
     animation: none !important;
+  }
+}
+
+/* View-transition safety: never animate positionally for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
   }
 }

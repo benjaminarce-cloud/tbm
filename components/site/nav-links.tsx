@@ -9,14 +9,27 @@ export function NavLinks() {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Main" className="hidden lg:flex lg:items-center lg:gap-8 xl:gap-10">
+    <nav
+      aria-label="Main"
+      className="hidden lg:flex lg:items-center lg:gap-7 xl:gap-9"
+    >
       {NAV_ITEMS.map((item) => {
         const isActive =
           !item.external &&
           (item.href === "/" ? pathname === "/" : pathname.startsWith(item.href));
 
         const baseClass =
-          "text-sm font-medium uppercase tracking-wider transition-colors";
+          "group/nav relative py-1.5 text-sm font-medium uppercase tracking-wider transition-colors duration-200";
+
+        const underline = (
+          <span
+            aria-hidden="true"
+            className={cn(
+              "absolute inset-x-0 -bottom-0.5 h-0.5 origin-left rounded-full bg-gradient-to-r from-brand-red to-[#ff8a6e] transition-transform duration-300 ease-out",
+              isActive ? "scale-x-100" : "scale-x-0 group-hover/nav:scale-x-100"
+            )}
+          />
+        );
 
         if (item.external) {
           return (
@@ -25,9 +38,10 @@ export function NavLinks() {
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={cn(baseClass, "text-white/85 hover:text-brand-red")}
+              className={cn(baseClass, "text-white/85 hover:text-white")}
             >
               {item.label}
+              {underline}
             </a>
           );
         }
@@ -39,10 +53,11 @@ export function NavLinks() {
             aria-current={isActive ? "page" : undefined}
             className={cn(
               baseClass,
-              isActive ? "text-brand-red" : "text-white/85 hover:text-brand-red"
+              isActive ? "text-white" : "text-white/85 hover:text-white"
             )}
           >
             {item.label}
+            {underline}
           </Link>
         );
       })}

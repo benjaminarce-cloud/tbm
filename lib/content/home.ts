@@ -1,9 +1,9 @@
 export const HOME = {
   hero: {
-    eyebrow: "Redefining logistics excellence",
-    headline: "Delivering Quality & Reliability",
+    eyebrow: "U.S. · Mexico · Canada cross-border logistics",
+    headline: "Freight that crosses borders without changing hands",
     subhead:
-      "Your trusted logistics partner for high-volume, reliable transportation. We connect 1,200+ cities across the United States, Mexico, and Canada — delivering consistency, speed, and confidence every mile.",
+      "TBM Carriers is an asset-based carrier — our trucks, our drivers, our terminals on both sides of the U.S.–Mexico border. Door-to-door across 1,200+ cities since 1999, with one accountable team watching every mile.",
     bgImage: "/brand/TBM-1.jpg",
   },
 
@@ -13,36 +13,82 @@ export const HOME = {
     { value: "500+", label: "Employees" },
   ],
 
+  /** Kinetic marquee band claims */
+  kinetic: [
+    "Asset-Based Carrier",
+    "Door-to-Door",
+    "US ⇄ MX ⇄ CA",
+    "C-TPAT · FAST · OEA",
+    "Since 1999",
+    "24/7 Live Support",
+    "Bonded Cross-Docks",
+  ],
+
+  /** Scroll-driven freight journey — what actually happens to a load */
+  journey: {
+    eyebrow: "What happens to your freight",
+    headline: "One carrier from your dock to theirs",
+    body: "Most cross-border freight changes hands three or four times. Yours doesn't. Follow a TBM load from pickup to proof of delivery — same carrier, same accountability, the whole way.",
+    stages: [
+      {
+        n: "01",
+        title: "Pickup at your dock",
+        body: "A TBM driver in TBM equipment loads at your facility — U.S., Mexico, or Canada. GPS tracking and AI-monitored cameras are live from the first mile.",
+      },
+      {
+        n: "02",
+        title: "Linehaul to the border",
+        body: "Late-model tractors on a three-year replacement cycle, maintained in-house. Your dedicated CSR watches the lane and flags anything before it becomes a delay.",
+      },
+      {
+        n: "03",
+        title: "Bonded cross-dock at the gateway",
+        body: "At major U.S.–Mexico crossings, our bonded facilities consolidate, deconsolidate, or re-route in minutes — not days. Controlled access, 24/7 on-site security.",
+      },
+      {
+        n: "04",
+        title: "Expedited crossing",
+        body: "C-TPAT, FAST, and OEA certifications keep loads in the trusted-trader lanes, while AI-validated Carta Porte documentation clears Mexican customs without rejections.",
+      },
+      {
+        n: "05",
+        title: "Delivery — same carrier",
+        body: "The load arrives door-to-door with no third-party handoffs, no chain-of-custody gaps. Proof of delivery and live updates land in your inbox.",
+      },
+    ],
+  },
+
   about: {
     eyebrow: "About Us",
     headline: "Operating since 1999, serving the USMCA region",
     body: [
-      "TBM Carriers is a cross-border logistics provider connecting the United States, Mexico, and Canada with door-to-door service handled exclusively by our drivers.",
-      "Our asset-based network — terminals on both sides of the border, certified maintenance facilities, and a 24/7 support team — delivers consistency, security, and accountability at every stage.",
+      "Since 1999, TBM Carriers has expanded its network across the United States, Mexico, and Canada, delivering reliable, high-performance logistics solutions. We combine advanced technology, efficient processes, and an experienced team to meet complex transportation demands with precision and consistency.",
+      "Our asset-based network — terminals on both sides of the border, certified maintenance facilities, and a 24/7 support team — keeps every shipment dependable, secure, and accountable from pickup to delivery.",
     ],
-    image: "/brand/tbm-c-2.jpg",
+    image: "/brand/tbm-carriers-91.jpg",
   },
 
   howItWorks: {
     eyebrow: "How It Works",
     headline: "Three steps to a reliable shipment",
+    body: "Streamline your shipping with our simple yet powerful three-step process. Discover how TBM Carriers reduces handling, improves transit times, and delivers consistent, reliable cross-border solutions.",
     steps: [
       {
         n: "01",
         title: "Request a Quote",
-        body: "Tell us your origin, destination, and commodity. Our specialists respond within 24 hours.",
+        body: "Provide basic information about your shipment to receive an initial cost estimate from our specialists.",
         image: "/brand/tbm-q.jpg",
       },
       {
         n: "02",
         title: "Provide Details",
-        body: "Share your shipment specs, schedule, and any compliance requirements. We handle the paperwork.",
+        body: "Share key shipping details, including pickup and delivery locations, so we can tailor the solution to your needs.",
         image: "/brand/tbm-e.jpg",
       },
       {
         n: "03",
         title: "Make It Happen",
-        body: "GPS-tracked, AI-monitored loads delivered with consistent communication from a dedicated CSR.",
+        body: "Select your pickup date, confirm the details, and let TBM Carriers handle the rest — efficiently and reliably.",
         image: "/brand/tbm-r.jpg",
       },
     ],
@@ -56,15 +102,15 @@ export const HOME = {
     pillars: [
       {
         title: "Asset-based + integrated",
-        body: "Our own trucks, drivers, and terminals — supported by 25+ C-TPAT-certified partner carriers for surge capacity. Fewer handoffs, fewer surprises, faster transit.",
+        body: "We deliver integrated, asset-based cross-border logistics that reduce costs while improving transit speed and reliability. Strategic partnerships with C-TPAT-certified carriers ensure secure, compliant operations across Mexico.",
       },
       {
         title: "Seamless international network",
-        body: "Coordinated origin-to-destination handoffs that minimize cargo handling, lower operating cost, and reduce damage and theft risk across the U.S.–Mexico–Canada corridor.",
+        body: "Our seamless international network minimizes handling, lowers operational costs, and reduces risk — supported by a network of 25+ C-TPAT-certified partner carriers.",
       },
       {
         title: "Ferromex intermodal integration",
-        body: "Partnership with Ferromex plugs Mexico's intermodal rail network into your supply chain — scalable, efficient, and cost-optimized for high-volume lanes.",
+        body: "Through our partnership with Ferromex, we integrate Mexico's intermodal rail network to deliver scalable, efficient, and cost-optimized cross-border transportation.",
       },
     ],
   },
@@ -74,7 +120,7 @@ export const HOME = {
     headline:
       "Simplify your shipping experience with cross-border docking",
     body: "Bonded cross-dock facilities at the major U.S./Mexico gateways let us consolidate, deconsolidate, and re-route in minutes — not days. The result: shorter transit windows, lower handling cost, and tighter compliance on both sides of the line.",
-    image: "/brand/tbm-back-team.jpg",
+    image: "/brand/tbm-carriers-98.jpg",
   },
 
   network: {
@@ -97,33 +143,33 @@ export const HOME = {
     eyebrow: "Texas to anywhere",
     headline:
       "Safe, secure, and reliable freight transportation across the United States and Texas",
-    body: "Looking for dependable freight transportation across the U.S.? TBM Carriers delivers secure, efficient, and high-performance logistics solutions backed by experience, advanced technology, and trusted operations throughout Texas and beyond.",
+    body: "Looking for dependable freight transportation across the U.S.? TBM Carriers delivers secure, efficient, and high-performance logistics solutions backed by experience, advanced technology, and trusted operations throughout Texas and beyond. Contact us today to learn how we can support your shipping needs.",
     bgImage: "/brand/home_airport_sectionbg7.jpg",
   },
 
   whyUs: {
-    eyebrow: "Cleaner, stronger, more confident",
-    headline:
-      "End-to-end logistics solutions designed to deliver reliability, coverage, and confidence across every shipment.",
+    eyebrow: "We check every box",
+    headline: "Cleaner, stronger, more confident",
+    body: "End-to-end logistics solutions designed to deliver reliability, coverage, and confidence across every shipment.",
     features: [
       {
         title: "Fast & Expert Solutions",
-        body: "Decades of cross-border expertise translate into faster clearing, fewer delays, and predictable transit times.",
+        body: "Leverage our experienced team and reliable network to deliver fast, efficient, and dependable transportation across the United States, Mexico, and Canada.",
         icon: "Zap",
       },
       {
         title: "Safety & Reliability",
-        body: "C-TPAT, FAST, and SmartWay certified, with continuous AI-powered monitoring across every load.",
+        body: "Leverage our state-of-the-art equipment and certified maintenance team to guarantee safety and efficiency across North America.",
         icon: "ShieldCheck",
       },
       {
         title: "Wide-Reaching Service",
-        body: "Coverage across 1,200+ cities through asset-based terminals and a vetted partner network.",
+        body: "Leverage our flexibility and adaptability — solutions tailored to your specific needs across 1,200+ cities.",
         icon: "Globe2",
       },
       {
         title: "24/7 Support",
-        body: "A dedicated CSR is your single point of contact, available around the clock with real-time updates.",
+        body: "Leverage our AI-powered load visibility and safety professionals to monitor and protect your product over the road, around the clock.",
         icon: "Headphones",
       },
     ],

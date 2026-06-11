@@ -1,13 +1,13 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { Mail, Truck } from "lucide-react";
+import { ContactSalesLink, TrackShipmentLink } from "./site-links";
 
 /**
- * Sticky mobile-only CTA bar. Hidden on /get-a-quote (already on the form),
- * appears once the user has scrolled past the hero. Respects safe-area-inset.
+ * Sticky mobile-only action bar. Appears once the user scrolls past the hero
+ * and hides as the footer comes into view. Respects safe-area-inset.
  */
 export function MobileCtaBar() {
   const pathname = usePathname();
@@ -17,7 +17,6 @@ export function MobileCtaBar() {
     const onScroll = () => {
       const y = window.scrollY;
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      // Visible after the hero, hidden as the footer comes into view.
       setVisible(y > 600 && y < max - 280);
     };
     onScroll();
@@ -29,7 +28,8 @@ export function MobileCtaBar() {
     };
   }, []);
 
-  if (pathname?.startsWith("/get-a-quote")) return null;
+  // The contact page already surfaces these actions prominently.
+  if (pathname?.startsWith("/contact")) return null;
 
   return (
     <div
@@ -42,14 +42,22 @@ export function MobileCtaBar() {
       }}
       className="fixed inset-x-0 bottom-0 z-40 flex justify-center px-3 pb-[max(env(safe-area-inset-bottom),0.75rem)] lg:hidden"
     >
-      <Link
-        href="/get-a-quote"
-        tabIndex={visible ? 0 : -1}
-        className="inline-flex h-12 w-full max-w-md items-center justify-center gap-2 rounded-full bg-primary px-6 text-base font-medium text-primary-foreground shadow-2xl shadow-brand-indigo-deep/40 ring-1 ring-white/10 backdrop-blur-sm transition-all hover:bg-primary/90 active:scale-[0.98]"
-      >
-        Free Quote
-        <ArrowRight className="h-4 w-4" aria-hidden="true" />
-      </Link>
+      <div className="flex w-full max-w-md items-center gap-2">
+        <TrackShipmentLink
+          tabIndex={visible ? 0 : -1}
+          className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-full border border-white/15 bg-brand-indigo/90 px-4 text-sm font-medium text-white shadow-2xl shadow-brand-indigo-deep/40 backdrop-blur-sm transition-all hover:bg-brand-indigo active:scale-[0.98]"
+        >
+          <Truck className="h-4 w-4 text-brand-red" aria-hidden="true" />
+          Track
+        </TrackShipmentLink>
+        <ContactSalesLink
+          tabIndex={visible ? 0 : -1}
+          className="shine-hover inline-flex h-12 flex-[1.4] items-center justify-center gap-2 rounded-full bg-primary px-4 text-sm font-medium text-primary-foreground shadow-2xl shadow-brand-red/30 ring-1 ring-white/10 transition-all hover:bg-primary/90 active:scale-[0.98]"
+        >
+          <Mail className="h-4 w-4" aria-hidden="true" />
+          Contact Sales
+        </ContactSalesLink>
+      </div>
     </div>
   );
 }
