@@ -2,7 +2,12 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Mail, RotateCcw } from "lucide-react";
-import { useReducedMotion } from "motion/react";
+import {
+  useMotionValue,
+  useMotionValueEvent,
+  useReducedMotion,
+  type MotionValue,
+} from "motion/react";
 import {
   MAP_DOTS_CA,
   MAP_DOTS_MX,
@@ -109,7 +114,15 @@ type Marker = NetworkLocation & { x: number; y: number; group: GroupKey };
  * lane — cross-border routes go through the best twin-city gateway — with
  * distance and transit estimates and a prefilled Contact Sales handoff.
  */
-export function NetworkMap({ className }: { className?: string }) {
+export function NetworkMap({
+  className,
+  revealProgress,
+}: {
+  className?: string;
+  /** 0..1 scroll progress: corridors fade-draw, markers cascade west->east,
+   *  legend lights up. Omit for the always-on (contact page) behavior. */
+  revealProgress?: MotionValue<number>;
+}) {
   const reduce = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
   const [filter, setFilter] = useState<GroupKey | "all">("all");
@@ -119,6 +132,15 @@ export function NetworkMap({ className }: { className?: string }) {
   const [destId, setDestId] = useState<string | null>(null);
   // Once the visitor interacts, the idle auto-tour stops for good.
   const [engaged, setEngaged] = useState(false);
+
+  // Scroll-reveal: markers cascade in west->east within [0.3, 0.9] of the
+  // provided progress; corridors and legend gate on thresholds.
+  const fallbackProgress = useMotionValue(1);
+  const reveal = revealProgress ?? fallbackProgress;
+  const revealing = !!revealProgress && !reduce;
+  const [revealCount, setRevealCount] = useState(revealing ? 0 : Infinity);
+  const [corridorsOn, setCorridorsOn] = useState(!revealing);
+  const [legendOn, setLegendOn] = useState(!revealing);
 
   const markers = useMemo<Marker[]>(
     () =>
@@ -136,6 +158,30 @@ export function NetworkMap({ className }: { className?: string }) {
     for (const mk of markers) m.set(mk.id, mk);
     return m;
   }, [markers]);
+
+  // West->east cascade order, grouped: terminals, drop yards, crossings, offices.
+  const revealRank = useMemo(() => {
+    const groupRank: Record<GroupKey, number> = {
+      terminal: 0,
+      dropyard: 1,
+      crossing: 2,
+      office: 3,
+    };
+    const sorted = [...markers].sort(
+      (a, b) => groupRank[a.group] - groupRank[b.group] || a.lon - b.lon
+    );
+    const rank = new Map<string, number>();
+    sorted.forEach((m, i) => rank.set(m.id, i));
+    return rank;
+  }, [markers]);
+
+  useMotionValueEvent(reveal, "change", (v) => {
+    if (!revealing) return;
+    const t = Math.min(1, Math.max(0, (v - 0.3) / 0.6));
+    setRevealCount(Math.floor(t * markers.length));
+    setCorridorsOn(v > 0.22);
+    setLegendOn(v > 0.5);
+  });
 
   const corridors = useMemo(
     () =>
@@ -244,6 +290,7 @@ export function NetworkMap({ className }: { className?: string }) {
   // until the visitor interacts. Skipped under reduced motion.
   useEffect(() => {
     if (reduce || engaged || mode !== "explore") return;
+    if (revealing && revealCount < markers.length) return;
     const el = containerRef.current;
     if (!el) return;
     let idx = 0;
@@ -266,7 +313,7 @@ export function NetworkMap({ className }: { className?: string }) {
       io.disconnect();
       clearInterval(interval);
     };
-  }, [reduce, engaged, mode, markers]);
+  }, [reduce, engaged, mode, markers, revealing, revealCount]);
 
   const active = markers.find((m) => m.id === activeId) ?? null;
 
@@ -326,7 +373,12 @@ export function NetworkMap({ className }: { className?: string }) {
       </div>
 
       {/* Legend / filters / mode */}
-      <div className="flex flex-wrap items-center gap-2">
+      <div
+        className={cn(
+          "flex flex-wrap items-center gap-2 transition-all duration-700",
+          legendOn ? "opacity-100" : "pointer-events-none opacity-0"
+        )}
+      >
         <button
           type="button"
           onClick={() => {
@@ -425,8 +477,8 @@ export function NetworkMap({ className }: { className?: string }) {
             strokeLinecap="round"
             strokeLinejoin="round"
             className={cn(
-              "pointer-events-none transition-opacity duration-300",
-              lane ? "opacity-30" : "opacity-100"
+              "pointer-events-none transition-opacity duration-1000",
+              !corridorsOn ? "opacity-0" : lane ? "opacity-30" : "opacity-100"
             )}
           >
             {corridors.map((c) => (
@@ -484,8 +536,12 @@ export function NetworkMap({ className }: { className?: string }) {
                 onBlur={() => setActiveId((a) => (a === m.id ? null : a))}
                 onClick={() => handleMarkerClick(m.id)}
                 className={cn(
-                  "absolute -translate-x-1/2 -translate-y-1/2 rounded-full p-2 transition-opacity duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red",
-                  on ? "opacity-100" : "pointer-events-none opacity-20"
+                  "absolute -translate-x-1/2 -translate-y-1/2 rounded-full p-2 transition-all duration-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red",
+                  (revealRank.get(m.id) ?? 0) >= revealCount
+                    ? "pointer-events-none scale-0 opacity-0"
+                    : on
+                      ? "scale-100 opacity-100"
+                      : "pointer-events-none opacity-20"
                 )}
                 style={{
                   left: `${(m.x / MAP_VIEW.w) * 100}%`,
@@ -661,7 +717,12 @@ export function NetworkMap({ className }: { className?: string }) {
       )}
 
       {/* Caption */}
-      <p className="mt-5 text-center text-[11px] uppercase tracking-[0.2em] text-fg-subtle">
+      <p
+        className={cn(
+          "mt-5 text-center text-[11px] uppercase tracking-[0.2em] text-fg-subtle transition-opacity duration-700",
+          legendOn ? "opacity-100" : "opacity-0"
+        )}
+      >
         {mode === "plan"
           ? "Lane planner — tap two cities to sketch a route"
           : `${counts.terminal} terminals & HQ · ${counts.dropyard} drop yards · ${counts.crossing} border crossings · ${counts.office} offices & shops — flowing lines trace our signature corridors`}

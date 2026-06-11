@@ -16,7 +16,7 @@ import { TheDrive } from "@/components/site/the-drive";
 import { CertMarquee } from "@/components/site/cert-marquee";
 import { CrossingChips } from "@/components/site/crossing-chips";
 import { MarqueeBand } from "@/components/site/marquee-band";
-import { NetworkMap } from "@/components/site/network-map";
+import { NetworkReveal } from "@/components/site/network-reveal";
 import { ParallaxLayer } from "@/components/site/parallax";
 import { Reveal } from "@/components/site/reveal";
 import { ServiceGrid } from "@/components/site/service-grid";
@@ -278,7 +278,7 @@ export default function Home() {
               {HOME.crossBorder.subhead}
             </p>
           </Reveal>
-          <ul className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 max-md:-mx-4 max-md:flex max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-4 max-md:pb-3 max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden">
+          <ul className="mt-12 grid grid-cols-1 gap-6 md:hidden max-md:-mx-4 max-md:flex max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-4 max-md:pb-3 max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden">
             {HOME.crossBorder.pillars.map((pillar, i) => (
               <Reveal as="li" key={pillar.title} delay={i * 0.08} className="max-md:w-[82vw] max-md:shrink-0 max-md:snap-center">
                 <SpotlightCard
@@ -298,6 +298,36 @@ export default function Home() {
               </Reveal>
             ))}
           </ul>
+
+          {/* Desktop: the pillars stack as a scroll deck */}
+          <div className="mt-12 hidden md:block">
+            {HOME.crossBorder.pillars.map((pillar, i) => (
+              <div key={pillar.title} className="h-[56vh]">
+                <div className="sticky" style={{ top: `${7.5 + i * 1.75}rem` }}>
+                  <SpotlightCard
+                    className="relative overflow-hidden rounded-3xl border border-black/5 bg-white p-10 shadow-[0_24px_70px_-30px_rgba(15,11,38,0.35)] lg:p-14"
+                    glow="color-mix(in oklab, var(--color-brand-red) 10%, transparent)"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute -right-4 top-1/2 -translate-y-1/2 select-none font-display text-[11rem] font-black leading-none text-brand-indigo/[0.05]"
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-red/10 font-display text-sm font-extrabold text-brand-red">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="mt-6 max-w-3xl font-display text-display-sm font-extrabold uppercase tracking-wide">
+                      {pillar.title}
+                    </h3>
+                    <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-muted lg:text-lg">
+                      {pillar.body}
+                    </p>
+                  </SpotlightCard>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -429,28 +459,14 @@ export default function Home() {
       </section>
 
       {/* NETWORK */}
-      <section
-        id="network"
-        className="scroll-mt-28 bg-white py-16 md:py-24 lg:py-32"
-      >
-        <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
-          <Reveal>
-            <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
-              {HOME.network.eyebrow}
-            </p>
-            <TextReveal
-              as="h2"
-              text={HOME.network.headline}
-              className="mt-3 max-w-3xl font-display text-display-sm font-extrabold tracking-tight sm:text-display-md"
-            />
-            <p className="mt-5 max-w-3xl text-base leading-relaxed text-fg-muted md:text-lg">
-              {HOME.network.body}
-            </p>
-          </Reveal>
-          <Reveal delay={0.1} className="mx-auto mt-12 w-full max-w-5xl">
-            <NetworkMap />
-          </Reveal>
-          <CrossingChips className="mt-12" />
+      <section id="network" className="scroll-mt-28 bg-white">
+        <NetworkReveal
+          eyebrow={HOME.network.eyebrow}
+          headline={HOME.network.headline}
+          body={HOME.network.body}
+        />
+        <div className="mx-auto w-full max-w-screen-2xl px-4 pb-16 pt-6 md:px-8 md:pb-24 md:pt-10">
+          <CrossingChips />
         </div>
       </section>
 
