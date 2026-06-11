@@ -1,9 +1,9 @@
 export const HOME = {
   hero: {
-    eyebrow: "U.S. · Mexico · Canada cross-border logistics",
-    headline: "Freight that crosses borders without changing hands",
+    eyebrow: "Redefining logistics excellence",
+    headline: "Delivering quality & reliability",
     subhead:
-      "TBM Carriers is an asset-based carrier — our trucks, our drivers, our terminals on both sides of the U.S.–Mexico border. Door-to-door across 1,200+ cities since 1999, with one accountable team watching every mile.",
+      "Your trusted logistics partner for high-volume, reliable transportation solutions. We connect 1,200+ cities across the United States, Mexico, and Canada — delivering consistency, speed, and confidence every mile.",
     bgImage: "/brand/TBM-1.jpg",
   },
 

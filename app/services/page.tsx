@@ -171,7 +171,10 @@ export default function ServicesPage() {
                   className="h-full rounded-2xl border border-black/5 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-lg hover:shadow-brand-indigo/10"
                   glow="color-mix(in oklab, var(--color-brand-red) 12%, transparent)"
                 >
-                  <h3 className="font-display text-xl font-extrabold uppercase tracking-wider">
+                  <span className="font-display text-sm font-extrabold tracking-[0.2em] text-brand-red">
+                    {item.partner}
+                  </span>
+                  <h3 className="mt-2 font-display text-xl font-extrabold uppercase tracking-wider">
                     {item.title}
                   </h3>
                   <p className="mt-3 text-base leading-relaxed text-fg-muted">

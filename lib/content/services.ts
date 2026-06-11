@@ -90,10 +90,12 @@ export const SERVICES_TECH = {
   headline: "Technology that powers our operations",
   items: [
     {
+      partner: "Samsara",
       title: "Real-time tracking & telematics",
       body: "Real-time GPS tracking and telematics deliver continuous visibility, live updates, and improved operational control across every shipment.",
     },
     {
+      partner: "McLeod",
       title: "Integrated TMS",
       body: "An integrated transportation management system (TMS) supports dispatch, freight brokerage, and asset management — optimizing efficiency and streamlining operations.",
     },

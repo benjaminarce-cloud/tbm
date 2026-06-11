@@ -549,7 +549,10 @@ export default function Home() {
                   className="h-full rounded-2xl border border-black/5 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-lg hover:shadow-brand-indigo/10 lg:p-8"
                   glow="color-mix(in oklab, var(--color-brand-red) 12%, transparent)"
                 >
-                  <h4 className="font-display text-lg font-extrabold uppercase tracking-wider">
+                  <span className="font-display text-sm font-extrabold tracking-[0.2em] text-brand-red">
+                    {item.partner}
+                  </span>
+                  <h4 className="mt-2 font-display text-lg font-extrabold uppercase tracking-wider">
                     {item.title}
                   </h4>
                   <p className="mt-3 text-sm leading-relaxed text-fg-muted">
