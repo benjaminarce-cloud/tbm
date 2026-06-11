@@ -13,4 +13,5 @@ export const COMPLIANCE_PRACTICES = [
   "Providing security guidelines and training for employees, contractors, service providers, and affiliated partners.",
   "Ensuring a safe and secure environment for employees, customers, vendors, and visitors.",
   "Investigating and responding promptly to any security incidents related to cargo security or C-TPAT/OEA compliance, and notifying the appropriate authorities when required.",
+  "Reviewing, revising, and updating risk assessments, security practices, and procedures on a regular basis, and as necessary.",
 ] as const;
