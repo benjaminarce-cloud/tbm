@@ -83,7 +83,7 @@ export default function Home() {
             </span>
           </div>
           <h1
-            className="animate-rise mt-6 max-w-4xl font-display text-display-md font-black leading-[0.95] tracking-[-0.02em] text-balance sm:text-display-lg [@media(min-height:1000px)]:lg:text-display-xl"
+            className="animate-rise mt-6 max-w-6xl font-display text-display-lg font-black uppercase leading-[0.9] tracking-[-0.015em] text-brand-red sm:text-display-xl lg:text-display-2xl"
             style={{ animationDelay: "60ms" }}
           >
             {HOME.hero.headline}

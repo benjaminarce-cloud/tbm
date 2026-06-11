@@ -29,6 +29,9 @@
   --text-display-lg--line-height: 1;
   --text-display-xl: clamp(2.875rem, 1.6rem + 6.1vw, 6rem);
   --text-display-xl--line-height: 0.95;
+  /* Hero-scale display — bigger, packed, all-caps. Ceilings by ~1140px. */
+  --text-display-2xl: clamp(2.75rem, 0.6rem + 9vw, 7rem);
+  --text-display-2xl--line-height: 0.9;
 
   /* shadcn token bridge */
   --color-sidebar-ring: var(--sidebar-ring);
