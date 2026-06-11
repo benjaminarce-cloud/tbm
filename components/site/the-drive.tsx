@@ -47,15 +47,18 @@ export function TheDrive(props: TheDriveProps) {
 function DriveScene({ eyebrow, headline, body, stages }: TheDriveProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
-  // Shorter ride per stage on phones — fewer thumb-swipes, same story.
-  const [perStage, setPerStage] = useState(78);
+  // Phones: slightly shorter ride per stage, and the active card parks
+  // dead-center (10vw); desktop centers wider cards at 33vw.
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
-    const apply = () => setPerStage(mq.matches ? 62 : 78);
+    const apply = () => setIsMobile(mq.matches);
     apply();
     mq.addEventListener("change", apply);
     return () => mq.removeEventListener("change", apply);
   }, []);
+  const perStage = isMobile ? 68 : 78;
+  const cardTarget = isMobile ? 10 : 33;
 
   const { scrollYProgress } = useScroll({
     target: wrapRef,
@@ -67,10 +70,13 @@ function DriveScene({ eyebrow, headline, body, stages }: TheDriveProps) {
     restDelta: 0.0005,
   });
 
-  // Total horizontal travel: last billboard parks just ahead of the truck.
-  const travel = WORLD_PAD + (stages.length - 1) * SPACING - (TRUCK_X + 12);
-
-  const worldX = useTransform(progress, (v) => `${-v * travel}vw`);
+  // Choreography: when stage i is active (p = i/(n-1)), its card sits exactly
+  // at `cardTarget` vw from the left — centered on phones, balanced on desktop.
+  const worldX = useTransform(
+    progress,
+    (v) =>
+      `${cardTarget - WORLD_PAD - v * (stages.length - 1) * SPACING}vw`
+  );
   const midX = useTransform(progress, (v) => `${-v * 26}vw`);
   const farX = useTransform(progress, (v) => `${-v * 9}vw`);
   const dashOffset = useTransform(progress, (v) => -v * 3200);
@@ -203,29 +209,29 @@ function DriveScene({ eyebrow, headline, body, stages }: TheDriveProps) {
             {stages.map((stage, i) => (
               <div
                 key={stage.n}
-                className="absolute top-3 w-[min(320px,80vw)] md:top-4 md:w-[min(400px,30vw)] [@media(max-height:820px)]:md:w-[min(360px,26vw)]"
+                className="absolute top-[38%] w-[min(360px,86vw)] -translate-y-1/2 md:top-4 md:w-[min(400px,30vw)] md:translate-y-0 [@media(max-height:820px)]:md:w-[min(360px,26vw)]"
                 style={{ left: `${WORLD_PAD + i * SPACING}vw` }}
               >
-                {/* Gantry hanger — cards hang overhead, truck owns the road */}
+                {/* Gantry hanger (desktop) — cards hang overhead, truck owns the road */}
                 <div
                   aria-hidden="true"
-                  className="absolute -top-3 left-1/2 h-3 w-1 -translate-x-1/2 bg-[#0d0a24] ring-1 ring-white/10"
+                  className="absolute -top-3 left-1/2 hidden h-3 w-1 -translate-x-1/2 bg-[#0d0a24] ring-1 ring-white/10 md:block"
                 />
                 <div
                   className={cn(
-                    "rounded-2xl border bg-brand-indigo-deep/80 p-4 backdrop-blur-md transition-all duration-500 md:p-5",
+                    "rounded-2xl border bg-brand-indigo-deep/80 p-5 backdrop-blur-md transition-all duration-500",
                     i === active
                       ? "border-brand-red/50 shadow-[0_18px_50px_-12px_rgba(228,67,46,0.35)]"
                       : "border-white/10"
                   )}
                 >
-                  <span className="font-display text-[10px] font-extrabold tracking-[0.3em] text-brand-red md:text-xs">
+                  <span className="font-display text-[11px] font-extrabold tracking-[0.3em] text-brand-red md:text-xs">
                     {stage.n}
                   </span>
-                  <h3 className="mt-1.5 font-display text-base font-extrabold uppercase tracking-wider md:mt-2 md:text-xl">
+                  <h3 className="mt-2 font-display text-lg font-extrabold uppercase tracking-wider md:text-xl">
                     {stage.title}
                   </h3>
-                  <p className="mt-1.5 text-[11px] leading-relaxed text-fg-subtle md:mt-2 md:text-sm">
+                  <p className="mt-2 text-[13px] leading-relaxed text-fg-subtle md:text-sm">
                     {stage.body}
                   </p>
                 </div>
