@@ -66,13 +66,15 @@ function PinnedNetwork({ eyebrow, headline, body }: NetworkRevealProps) {
     restDelta: 0.0005,
   });
 
-  // Entrance: miniature card grows to full frame in the first third.
-  const scale = useTransform(progress, [0, 0.34], [0.72, 1]);
-  const headerOpacity = useTransform(progress, [0.3, 0.6], [1, 0.45]);
-  const headerY = useTransform(progress, [0.3, 0.6], [0, -10]);
+  // Entrance: miniature card grows to full frame in the first ~third; the
+  // cascade completes by ~0.72, leaving the rest of the pin as settled,
+  // fully-interactive map time.
+  const scale = useTransform(progress, [0, 0.3], [0.72, 1]);
+  const headerOpacity = useTransform(progress, [0.28, 0.55], [1, 0.45]);
+  const headerY = useTransform(progress, [0.28, 0.55], [0, -10]);
 
   return (
-    <div ref={wrapRef} className="relative h-[230vh]">
+    <div ref={wrapRef} className="relative h-[250vh]">
       <div className="sticky top-0 flex h-dvh flex-col overflow-hidden">
         {/* Header — compact, recedes once the map takes the frame */}
         <motion.div

@@ -90,6 +90,8 @@ export function NavLinks() {
         );
 
         if (item.overlay) {
+          // The overlay trigger is an action, not navigation — style it as
+          // the capsule's primary pill.
           return (
             <button
               key={item.href}
@@ -97,13 +99,9 @@ export function NavLinks() {
               onClick={() =>
                 window.dispatchEvent(new CustomEvent(OPEN_CONTACT_EVENT))
               }
-              className={cn(
-                baseClass,
-                isActive ? "text-white" : "text-white/85 hover:text-white"
-              )}
+              className="shine-hover inline-flex h-9 items-center justify-center rounded-full bg-primary px-4 text-xs font-medium uppercase tracking-wider text-primary-foreground shadow-md shadow-brand-red/25 transition-all hover:bg-primary/90 active:scale-[0.97] lg:h-10 lg:px-5 lg:text-sm"
             >
               {item.label}
-              {underline}
             </button>
           );
         }

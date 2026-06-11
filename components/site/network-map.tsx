@@ -177,9 +177,10 @@ export function NetworkMap({
 
   useMotionValueEvent(reveal, "change", (v) => {
     if (!revealing) return;
-    const t = Math.min(1, Math.max(0, (v - 0.3) / 0.6));
+    // Cascade runs 0.25→0.72 so the tail of the pin is settled map time.
+    const t = Math.min(1, Math.max(0, (v - 0.25) / 0.47));
     setRevealCount(Math.floor(t * markers.length));
-    setCorridorsOn(v > 0.22);
+    setCorridorsOn(v > 0.18);
     setLegendOn(v > 0.5);
   });
 
