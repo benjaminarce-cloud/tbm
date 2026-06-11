@@ -82,7 +82,7 @@ export const SERVICES_AI = {
   eyebrow: "Technology",
   headline: "Utilizing AI to simplify your Carta Porte",
   body: "Mexico's Carta Porte mandate adds real complexity to cross-border freight — wrong fields trigger rejections, audits, and detentions. Our AI tooling auto-fills compliance documents, validates against the latest SAT requirements, and flags issues before the load leaves the dock.",
-  image: "/brand/tbm-logistics-guy.jpg",
+  image: "/brand/tbm-back-girl.jpg",
 } as const;
 
 export const SERVICES_TECH = {

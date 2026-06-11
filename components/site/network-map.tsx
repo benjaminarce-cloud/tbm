@@ -117,11 +117,15 @@ type Marker = NetworkLocation & { x: number; y: number; group: GroupKey };
 export function NetworkMap({
   className,
   revealProgress,
+  frameCap,
 }: {
   className?: string;
   /** 0..1 scroll progress: corridors fade-draw, markers cascade west->east,
    *  legend lights up. Omit for the always-on (contact page) behavior. */
   revealProgress?: MotionValue<number>;
+  /** CSS max-height for the map box — the pinned reveal passes a tighter
+   *  cap so the card never overlaps the scene header. */
+  frameCap?: string;
 }) {
   const reduce = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -448,7 +452,10 @@ export function NetworkMap({
           %-positioned, so the ratio must hold exactly). */}
       <div
         className="relative mx-auto mt-6 max-h-[max(18rem,calc(100dvh-18rem))]"
-        style={{ aspectRatio: `${MAP_VIEW.w} / ${MAP_VIEW.h}` }}
+        style={{
+          aspectRatio: `${MAP_VIEW.w} / ${MAP_VIEW.h}`,
+          ...(frameCap ? { maxHeight: frameCap } : {}),
+        }}
         onPointerEnter={engage}
       >
         <svg

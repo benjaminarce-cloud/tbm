@@ -604,7 +604,7 @@ export default function Home() {
                   alt=""
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-cover object-left"
                 />
               </ParallaxLayer>
             </Reveal>

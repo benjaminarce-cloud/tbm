@@ -76,10 +76,12 @@ function PinnedNetwork({ eyebrow, headline, body }: NetworkRevealProps) {
   return (
     <div ref={wrapRef} className="relative h-[250vh]">
       <div className="sticky top-0 flex h-dvh flex-col overflow-hidden">
-        {/* Header — compact, recedes once the map takes the frame */}
+        {/* Header — compact, recedes once the map takes the frame.
+            pointer-events-none: it overlays the card's legend row at some
+            heights and must never swallow clicks meant for the map. */}
         <motion.div
           style={{ opacity: headerOpacity, y: headerY }}
-          className="relative z-10 mx-auto w-full max-w-screen-2xl px-4 pt-24 md:px-8 md:pt-28"
+          className="pointer-events-none relative z-10 mx-auto w-full max-w-screen-2xl px-4 pt-24 md:px-8 md:pt-28"
         >
           <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-brand-red md:text-xs md:tracking-[0.25em]">
             {eyebrow}
@@ -100,7 +102,10 @@ function PinnedNetwork({ eyebrow, headline, body }: NetworkRevealProps) {
             style={{ scale }}
             className="mx-auto w-full max-w-[100rem] origin-center will-change-transform"
           >
-            <NetworkMap revealProgress={progress} />
+            <NetworkMap
+              revealProgress={progress}
+              frameCap="max(16rem, calc(100dvh - 29rem))"
+            />
           </motion.div>
         </div>
       </div>
