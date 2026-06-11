@@ -18,6 +18,8 @@ import { CrossingChips } from "@/components/site/crossing-chips";
 import { MarqueeBand } from "@/components/site/marquee-band";
 import { NetworkReveal } from "@/components/site/network-reveal";
 import { ParallaxLayer } from "@/components/site/parallax";
+import { ParallaxDrift } from "@/components/site/parallax-drift";
+import { StepProgress } from "@/components/site/step-progress";
 import { Reveal } from "@/components/site/reveal";
 import { ServiceGrid } from "@/components/site/service-grid";
 import { SpotlightCard } from "@/components/site/spotlight-card";
@@ -204,6 +206,7 @@ export default function Home() {
           <ul className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 max-md:-mx-4 max-md:flex max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-4 max-md:pb-3 max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden">
             {ABOUT.mvh.items.map((item, i) => (
               <Reveal as="li" key={item.label} delay={i * 0.08} className="max-md:w-[82vw] max-md:shrink-0 max-md:snap-center">
+                <ParallaxDrift index={i}>
                 <SpotlightCard
                   className="h-full rounded-2xl border border-black/5 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-xl hover:shadow-brand-indigo/10"
                   glow="color-mix(in oklab, var(--color-brand-red) 12%, transparent)"
@@ -218,6 +221,7 @@ export default function Home() {
                     {item.body}
                   </p>
                 </SpotlightCard>
+                </ParallaxDrift>
               </Reveal>
             ))}
           </ul>
@@ -241,6 +245,7 @@ export default function Home() {
               const Icon = KNOW_US_PILLAR_ICONS[i];
               return (
                 <Reveal as="li" key={pillar.title} delay={i * 0.08} className="max-md:w-[82vw] max-md:shrink-0 max-md:snap-center">
+                  <ParallaxDrift index={i}>
                   <SpotlightCard
                     className="h-full rounded-2xl border border-black/5 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-lg hover:shadow-brand-indigo/10 lg:p-8"
                     glow="color-mix(in oklab, var(--color-brand-red) 12%, transparent)"
@@ -255,6 +260,7 @@ export default function Home() {
                       {pillar.body}
                     </p>
                   </SpotlightCard>
+                  </ParallaxDrift>
                 </Reveal>
               );
             })}
@@ -428,18 +434,21 @@ export default function Home() {
           <ol className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3 max-md:-mx-4 max-md:flex max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-4 max-md:pb-3 max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden">
             {HOME.howItWorks.steps.map((step, i) => (
               <Reveal as="li" key={step.n} delay={i * 0.1} className="max-md:w-[82vw] max-md:shrink-0 max-md:snap-center">
+                <ParallaxDrift index={i}>
                 <SpotlightCard
                   className="h-full rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/40"
                   glow="color-mix(in oklab, var(--color-brand-red) 20%, transparent)"
                 >
                   <div className="relative aspect-[3/2] overflow-hidden">
-                    <Image
-                      src={step.image}
-                      alt=""
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover/spot:scale-105"
-                    />
+                    <ParallaxLayer amount={20}>
+                      <Image
+                        src={step.image}
+                        alt=""
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover/spot:scale-105"
+                      />
+                    </ParallaxLayer>
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-indigo via-brand-indigo/40 to-transparent" />
                   </div>
                   <div className="relative p-6 lg:p-8">
@@ -452,9 +461,11 @@ export default function Home() {
                     <p className="mt-3 text-fg-subtle">{step.body}</p>
                   </div>
                 </SpotlightCard>
+                </ParallaxDrift>
               </Reveal>
             ))}
           </ol>
+          <StepProgress steps={3} className="mt-12" />
         </div>
       </section>
 
@@ -533,6 +544,7 @@ export default function Home() {
           <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2">
             {SERVICES_TECH.items.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.08}>
+                <ParallaxDrift index={i}>
                 <SpotlightCard
                   className="h-full rounded-2xl border border-black/5 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-lg hover:shadow-brand-indigo/10 lg:p-8"
                   glow="color-mix(in oklab, var(--color-brand-red) 12%, transparent)"
@@ -544,6 +556,7 @@ export default function Home() {
                     {item.body}
                   </p>
                 </SpotlightCard>
+                </ParallaxDrift>
               </Reveal>
             ))}
           </div>
@@ -620,6 +633,7 @@ export default function Home() {
               const Icon = WHY_US_ICONS[feature.icon];
               return (
                 <Reveal as="li" key={feature.title} delay={i * 0.08} y={16} className="max-md:w-[82vw] max-md:shrink-0 max-md:snap-center">
+                  <ParallaxDrift index={i}>
                   <SpotlightCard
                     className="h-full rounded-2xl border border-black/5 bg-muted/30 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-lg hover:shadow-brand-indigo/10"
                     glow="color-mix(in oklab, var(--color-brand-red) 12%, transparent)"
@@ -634,6 +648,7 @@ export default function Home() {
                       {feature.body}
                     </p>
                   </SpotlightCard>
+                  </ParallaxDrift>
                 </Reveal>
               );
             })}
