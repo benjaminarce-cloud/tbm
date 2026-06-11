@@ -10,7 +10,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
-import { BorderJourney } from "@/components/site/border-journey";
+import { TheDrive } from "@/components/site/the-drive";
 import { CertMarquee } from "@/components/site/cert-marquee";
 import { CrossingChips } from "@/components/site/crossing-chips";
 import { MarqueeBand } from "@/components/site/marquee-band";
@@ -195,9 +195,9 @@ export default function Home() {
               {HOME.crossBorder.subhead}
             </p>
           </Reveal>
-          <ul className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <ul className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 max-md:-mx-4 max-md:flex max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-4 max-md:pb-3 max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden">
             {HOME.crossBorder.pillars.map((pillar, i) => (
-              <Reveal as="li" key={pillar.title} delay={i * 0.08}>
+              <Reveal as="li" key={pillar.title} delay={i * 0.08} className="max-md:w-[82vw] max-md:shrink-0 max-md:snap-center">
                 <SpotlightCard
                   className="h-full rounded-2xl border border-black/5 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-xl hover:shadow-brand-indigo/10 lg:p-8"
                   glow="color-mix(in oklab, var(--color-brand-red) 12%, transparent)"
@@ -218,8 +218,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BORDER JOURNEY — scroll-driven freight story */}
-      <BorderJourney
+      {/* THE DRIVE — pinned truck cinematic (falls back to the vertical
+          journey under prefers-reduced-motion) */}
+      <TheDrive
         eyebrow={HOME.journey.eyebrow}
         headline={HOME.journey.headline}
         body={HOME.journey.body}
@@ -311,9 +312,9 @@ export default function Home() {
               {HOME.howItWorks.body}
             </p>
           </Reveal>
-          <ol className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3">
+          <ol className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3 max-md:-mx-4 max-md:flex max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-4 max-md:pb-3 max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden">
             {HOME.howItWorks.steps.map((step, i) => (
-              <Reveal as="li" key={step.n} delay={i * 0.1}>
+              <Reveal as="li" key={step.n} delay={i * 0.1} className="max-md:w-[82vw] max-md:shrink-0 max-md:snap-center">
                 <SpotlightCard
                   className="h-full rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/40"
                   glow="color-mix(in oklab, var(--color-brand-red) 20%, transparent)"
@@ -416,11 +417,11 @@ export default function Home() {
               {HOME.whyUs.body}
             </p>
           </Reveal>
-          <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 max-md:-mx-4 max-md:flex max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-4 max-md:pb-3 max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden">
             {HOME.whyUs.features.map((feature, i) => {
               const Icon = WHY_US_ICONS[feature.icon];
               return (
-                <Reveal as="li" key={feature.title} delay={i * 0.08} y={16}>
+                <Reveal as="li" key={feature.title} delay={i * 0.08} y={16} className="max-md:w-[82vw] max-md:shrink-0 max-md:snap-center">
                   <SpotlightCard
                     className="h-full rounded-2xl border border-black/5 bg-muted/30 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-lg hover:shadow-brand-indigo/10"
                     glow="color-mix(in oklab, var(--color-brand-red) 12%, transparent)"

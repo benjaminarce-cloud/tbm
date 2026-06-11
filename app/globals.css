@@ -422,6 +422,12 @@
   }
 }
 
+/* Mobile snap carousels animate children while scrolling; opt out of the
+   browser's scroll-anchoring corrections (silences FF dev warnings too). */
+[class*="snap-mandatory"] {
+  overflow-anchor: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
   .animate-aurora,

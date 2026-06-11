@@ -97,9 +97,9 @@ export default function ServicesPage() {
               className="mt-3 max-w-3xl font-display text-display-sm font-extrabold tracking-tight sm:text-display-md"
             />
           </Reveal>
-          <ul className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+          <ul className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3 max-md:-mx-4 max-md:flex max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-4 max-md:pb-3 max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden">
             {SERVICE_FEATURES.map((feature, i) => (
-              <Reveal as="li" key={feature.title} delay={i * 0.1}>
+              <Reveal as="li" key={feature.title} delay={i * 0.1} className="max-md:w-[82vw] max-md:shrink-0 max-md:snap-center">
                 <SpotlightCard
                   className="h-full rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/40 lg:p-8"
                   glow="color-mix(in oklab, var(--color-brand-red) 22%, transparent)"

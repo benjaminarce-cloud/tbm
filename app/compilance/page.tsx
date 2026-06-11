@@ -189,9 +189,9 @@ export default function CompliancePage() {
               Partnerships and certifications
             </h2>
           </Reveal>
-          <ul className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <ul className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 max-md:-mx-4 max-md:flex max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-4 max-md:pb-3 max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden">
             {CERTIFICATIONS.map((cert, i) => (
-              <Reveal as="li" key={cert.slug} delay={i * 0.05}>
+              <Reveal as="li" key={cert.slug} delay={i * 0.05} className="max-md:w-[82vw] max-md:shrink-0 max-md:snap-center">
                 <SpotlightCard
                   className="h-full rounded-2xl border border-black/5 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/40 hover:shadow-lg hover:shadow-brand-indigo/10"
                   glow="color-mix(in oklab, var(--color-brand-red) 10%, transparent)"

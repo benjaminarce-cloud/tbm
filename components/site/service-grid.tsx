@@ -14,7 +14,7 @@ export function ServiceGrid({ variant = "bento", className }: ServiceGridProps) 
     return (
       <ul
         className={cn(
-          "grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3",
+          "grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 max-md:-mx-4 max-md:flex max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-4 max-md:pb-3 max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden",
           className
         )}
       >
@@ -31,13 +31,13 @@ export function ServiceGrid({ variant = "bento", className }: ServiceGridProps) 
   return (
     <ul
       className={cn(
-        "grid grid-cols-1 gap-6 sm:grid-cols-2 lg:auto-rows-fr lg:grid-cols-3",
+        "grid grid-cols-1 gap-6 sm:grid-cols-2 lg:auto-rows-fr lg:grid-cols-3 max-md:-mx-4 max-md:flex max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-4 max-md:pb-3 max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden",
         className
       )}
     >
       <SpotlightCard
         as="li"
-        className="rounded-2xl border border-white/10 bg-brand-indigo p-6 text-white transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/40 hover:shadow-2xl hover:shadow-brand-indigo-deep/50 sm:col-span-2 sm:p-8 lg:row-span-2 md:p-10"
+        className="max-md:w-[88vw] max-md:shrink-0 max-md:snap-center rounded-2xl border border-white/10 bg-brand-indigo p-6 text-white transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/40 hover:shadow-2xl hover:shadow-brand-indigo-deep/50 sm:col-span-2 sm:p-8 lg:row-span-2 md:p-10"
         glow="color-mix(in oklab, var(--color-brand-red) 26%, transparent)"
       >
         <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-lg shadow-brand-red/20 ring-1 ring-brand-red/30 transition-transform duration-300 group-hover/spot:scale-105">
@@ -71,7 +71,7 @@ function ServiceCard({ service }: { service: ServiceItem }) {
   return (
     <SpotlightCard
       as="li"
-      className="rounded-2xl border border-black/5 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/40 hover:shadow-xl hover:shadow-brand-indigo/10 lg:p-8"
+      className="max-md:w-[82vw] max-md:shrink-0 max-md:snap-center rounded-2xl border border-black/5 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/40 hover:shadow-xl hover:shadow-brand-indigo/10 lg:p-8"
       glow="color-mix(in oklab, var(--color-brand-red) 12%, transparent)"
     >
       <Image

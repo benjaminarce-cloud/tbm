@@ -92,9 +92,9 @@ export default function AboutPage() {
               className="mt-3 max-w-3xl font-display text-display-sm font-extrabold tracking-tight sm:text-display-md"
             />
           </Reveal>
-          <ul className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <ul className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 max-md:-mx-4 max-md:flex max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-4 max-md:pb-3 max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden">
             {ABOUT.mvh.items.map((item, i) => (
-              <Reveal as="li" key={item.label} delay={i * 0.08}>
+              <Reveal as="li" key={item.label} delay={i * 0.08} className="max-md:w-[82vw] max-md:shrink-0 max-md:snap-center">
                 <SpotlightCard
                   className="h-full rounded-2xl border border-black/5 bg-muted/30 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-xl hover:shadow-brand-indigo/10"
                   glow="color-mix(in oklab, var(--color-brand-red) 12%, transparent)"
@@ -131,11 +131,11 @@ export default function AboutPage() {
               {ABOUT.pillarsIntro.body}
             </p>
           </Reveal>
-          <ul className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+          <ul className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3 max-md:-mx-4 max-md:flex max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-4 max-md:pb-3 max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden">
             {ABOUT.pillars.map((pillar, i) => {
               const Icon = PILLAR_ICONS[i];
               return (
-                <Reveal as="li" key={pillar.title} delay={i * 0.1}>
+                <Reveal as="li" key={pillar.title} delay={i * 0.1} className="max-md:w-[82vw] max-md:shrink-0 max-md:snap-center">
                   <SpotlightCard
                     className="h-full rounded-2xl border border-black/5 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-xl hover:shadow-brand-indigo/10"
                     glow="color-mix(in oklab, var(--color-brand-red) 12%, transparent)"

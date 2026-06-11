@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { CopyButton } from "@/components/site/copy-button";
 import { CtaBand } from "@/components/site/cta-band";
 import { NetworkMap } from "@/components/site/network-map";
 import { ParallaxLayer } from "@/components/site/parallax";
@@ -73,9 +74,9 @@ export default function ContactPage() {
               email or phone.
             </p>
           </Reveal>
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 max-md:-mx-4 max-md:flex max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-4 max-md:pb-3 max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden">
             {/* Sales */}
-            <Reveal as="div" className="sm:col-span-2 lg:col-span-1">
+            <Reveal as="div" className="sm:col-span-2 lg:col-span-1 max-md:w-[82vw] max-md:shrink-0 max-md:snap-center">
               <SpotlightCard
                 className="h-full rounded-2xl border border-black/5 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-xl hover:shadow-brand-indigo/10"
                 glow="color-mix(in oklab, var(--color-brand-red) 12%, transparent)"
@@ -98,7 +99,7 @@ export default function ContactPage() {
             </Reveal>
 
             {/* US phones */}
-            <Reveal as="div" delay={0.08}>
+            <Reveal as="div" delay={0.08} className="max-md:w-[82vw] max-md:shrink-0 max-md:snap-center">
               <SpotlightCard
                 className="h-full rounded-2xl border border-black/5 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-xl hover:shadow-brand-indigo/10"
                 glow="color-mix(in oklab, var(--color-brand-red) 12%, transparent)"
@@ -118,13 +119,14 @@ export default function ContactPage() {
                 </h3>
                 <ul className="mt-4 flex-1 space-y-2 text-sm">
                   {OFFICES[0].phones.map((p) => (
-                    <li key={p}>
+                    <li key={p} className="flex items-center justify-between gap-2">
                       <a
                         href={telHref(p)}
                         className="font-medium tabular-nums text-foreground transition-colors hover:text-brand-red"
                       >
                         {p}
                       </a>
+                      <CopyButton text={p} label={`Copy phone number ${p}`} />
                     </li>
                   ))}
                 </ul>
@@ -132,7 +134,7 @@ export default function ContactPage() {
             </Reveal>
 
             {/* MX phones */}
-            <Reveal as="div" delay={0.16}>
+            <Reveal as="div" delay={0.16} className="max-md:w-[82vw] max-md:shrink-0 max-md:snap-center">
               <SpotlightCard
                 className="h-full rounded-2xl border border-black/5 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-xl hover:shadow-brand-indigo/10"
                 glow="color-mix(in oklab, var(--color-brand-red) 12%, transparent)"
@@ -152,13 +154,14 @@ export default function ContactPage() {
                 </h3>
                 <ul className="mt-4 flex-1 space-y-2 text-sm">
                   {OFFICES[1].phones.map((p) => (
-                    <li key={p}>
+                    <li key={p} className="flex items-center justify-between gap-2">
                       <a
                         href={telHref(p)}
                         className="font-medium tabular-nums text-foreground transition-colors hover:text-brand-red"
                       >
                         {p}
                       </a>
+                      <CopyButton text={p} label={`Copy phone number ${p}`} />
                     </li>
                   ))}
                 </ul>
@@ -213,13 +216,14 @@ export default function ContactPage() {
                       />
                       <ul className="space-y-1">
                         {office.phones.map((p) => (
-                          <li key={p}>
+                          <li key={p} className="flex items-center gap-2">
                             <a
                               href={telHref(p)}
                               className="tabular-nums transition-colors hover:text-brand-red"
                             >
                               {p}
                             </a>
+                            <CopyButton text={p} label={`Copy phone number ${p}`} />
                           </li>
                         ))}
                       </ul>

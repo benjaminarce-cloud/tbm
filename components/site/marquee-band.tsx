@@ -1,32 +1,73 @@
+"use client";
+
+import { useRef } from "react";
+import {
+  motion,
+  useAnimationFrame,
+  useMotionValue,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+  useVelocity,
+} from "motion/react";
 import { cn } from "@/lib/utils";
 
 type MarqueeBandProps = {
   words: readonly string[];
   className?: string;
-  /** One full loop duration. Default "32s". */
-  speed?: string;
+  /** Base drift in %/s of one content copy. Default 4.5. */
+  baseSpeed?: number;
 };
 
+function wrapRange(min: number, max: number, v: number) {
+  const range = max - min;
+  return ((((v - min) % range) + range) % range) + min;
+}
+
 /**
- * Kinetic typography strip — oversized uppercase claims scrolling on a dark
- * band. CSS-only (reuses the marquee keyframes), pauses on hover, disabled
- * under prefers-reduced-motion via globals.css.
+ * Kinetic typography strip that reacts to scrolling: it drifts on its own,
+ * accelerates with scroll velocity, and follows the scroll direction.
+ * Reduced motion renders the strip static.
  */
-export function MarqueeBand({ words, className, speed = "32s" }: MarqueeBandProps) {
+export function MarqueeBand({ words, className, baseSpeed = 4.5 }: MarqueeBandProps) {
+  const reduce = useReducedMotion();
   const items = [...words, ...words];
+
+  const baseX = useMotionValue(0);
+  const { scrollY } = useScroll();
+  const velocity = useVelocity(scrollY);
+  const smooth = useSpring(velocity, { damping: 50, stiffness: 380 });
+  const boost = useTransform(smooth, [-1400, 0, 1400], [-4, 0, 4], {
+    clamp: false,
+  });
+
+  const dirRef = useRef(1);
+
+  useAnimationFrame((_, delta) => {
+    if (reduce) return;
+    const b = boost.get();
+    if (b < -0.1) dirRef.current = -1;
+    else if (b > 0.1) dirRef.current = 1;
+    const move =
+      dirRef.current * baseSpeed * (delta / 1000) * (1 + Math.abs(b));
+    baseX.set(wrapRange(-50, 0, baseX.get() - move));
+  });
+
+  const x = useTransform(baseX, (v) => `${v}%`);
 
   return (
     <section
       aria-label="TBM highlights"
       className={cn(
-        "group relative isolate overflow-hidden border-y border-white/10 bg-brand-indigo-deep py-5 md:py-6",
+        "relative isolate overflow-hidden border-y border-white/10 bg-brand-indigo-deep py-5 md:py-6",
         "[mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]",
         className
       )}
     >
-      <div
-        className="flex w-max items-center gap-8 animate-marquee group-hover:[animation-play-state:paused] md:gap-12"
-        style={{ ["--marquee-duration" as string]: speed }}
+      <motion.div
+        style={reduce ? undefined : { x }}
+        className="flex w-max items-center gap-8 md:gap-12"
       >
         {items.map((w, i) => (
           <span
@@ -43,7 +84,7 @@ export function MarqueeBand({ words, className, speed = "32s" }: MarqueeBandProp
             />
           </span>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
