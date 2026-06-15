@@ -175,6 +175,44 @@ export const HOME = {
     ],
   },
 
+  /** FAQ — real shipper questions, answered from facts already on the site.
+   *  Mirrored into FAQPage structured data for rich-result eligibility. */
+  faq: {
+    eyebrow: "Questions, answered",
+    headline: "What shippers ask before they switch",
+    body: "Straight answers about how cross-border freight works when one accountable carrier owns the whole move.",
+    items: [
+      {
+        q: "Are you an asset-based carrier or a broker?",
+        a: "Asset-based. We own the trucks, the trailers, the terminals, and the maintenance facilities on both sides of the U.S.–Mexico border — and TBM drivers move every load. That's the difference between a broker promising service and a carrier delivering it.",
+      },
+      {
+        q: "How do you keep freight from getting stuck at the border?",
+        a: "Our own drivers handle the crossing door-to-door — no third-party handoffs, no chain-of-custody gaps. C-TPAT, FAST, and OEA certifications keep loads in the trusted-trader lanes, and bonded cross-docks at the major gateways let us consolidate, deconsolidate, or re-route in minutes, not days.",
+      },
+      {
+        q: "What is Carta Porte, and how do you handle it?",
+        a: "Carta Porte is Mexico's mandatory shipping document, and the wrong fields trigger rejections, audits, and detentions. Our AI tooling auto-fills and validates the documentation against the latest SAT requirements, flagging issues before the load ever leaves the dock.",
+      },
+      {
+        q: "Where do you operate?",
+        a: "Across the United States, Mexico, and Canada — 1,200+ cities, with terminals and bonded facilities positioned at every major U.S.–Mexico gateway from Otay Mesa and Calexico to Nogales, Eagle Pass, and Laredo.",
+      },
+      {
+        q: "How do I track my shipment?",
+        a: "Every truck carries GPS and AI-powered cameras for continuous, real-time visibility. You get live updates through our tracking portal, and your dedicated Customer Service Representative watches the lane and flags anything before it becomes a delay.",
+      },
+      {
+        q: "What certifications and security programs do you hold?",
+        a: "TBM Carriers Inc. and TBM Carriers de México are certified participants in C-TPAT and OEA, plus FAST, SmartWay, the California Air Resources Board, and the Southwest Minority Supplier Development Council — audited security and compliance behind every load.",
+      },
+      {
+        q: "How do I get started or request a quote?",
+        a: "Reach our sales team directly — one click opens an email to a real person who knows cross-border freight. No forms, no call centers, and we reply within 24 hours.",
+      },
+    ],
+  },
+
   finalCta: {
     eyebrow: "Ship with confidence",
     headline: "Reliable, secure, and efficient logistics solutions across North America.",

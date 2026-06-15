@@ -14,6 +14,7 @@ import {
 import { buttonVariants } from "@/components/ui/button";
 import { TheDrive } from "@/components/site/the-drive";
 import { CertMarquee } from "@/components/site/cert-marquee";
+import { Faq } from "@/components/site/faq";
 import { CrossingChips } from "@/components/site/crossing-chips";
 import { MarqueeBand } from "@/components/site/marquee-band";
 import { NetworkReveal } from "@/components/site/network-reveal";
@@ -759,6 +760,11 @@ export default function Home() {
             </JumpLink>
           </Reveal>
         </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="scroll-mt-24 bg-muted/30 py-16 md:py-24 lg:py-32">
+        <Faq />
       </section>
 
       {/* FINAL CTA */}
