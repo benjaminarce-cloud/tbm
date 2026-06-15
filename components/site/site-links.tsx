@@ -1,6 +1,6 @@
 import { type ReactNode } from "react";
 import { SITE } from "@/lib/content/site";
-import { mailtoHref } from "@/lib/utils";
+import { cn, mailtoHref } from "@/lib/utils";
 
 /** External "Track Shipment" link to the TMS portal. */
 export function TrackShipmentLink({
@@ -16,7 +16,7 @@ export function TrackShipmentLink({
       href={SITE.trackingUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={className}
+      className={cn("font-display", className)}
       {...rest}
     >
       {children}
@@ -41,7 +41,7 @@ export function ContactSalesLink({
   return (
     <a
       href={mailtoHref(SITE.salesEmail, subject)}
-      className={className}
+      className={cn("font-display", className)}
       aria-label="Contact sales by email"
       {...rest}
     >

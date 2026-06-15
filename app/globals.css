@@ -170,6 +170,15 @@
     -webkit-tap-highlight-color: transparent;
   }
 
+  /* Type system split by function: the elegant serif (Cormorant) carries
+     reading text, while the condensed display face (Oswald) carries every
+     uppercase label — nav, eyebrows, stats, badges — so structure reads
+     crisp and authoritative. Uppercase is only ever used for labels here,
+     never for prose, so this is safe site-wide. */
+  .uppercase {
+    font-family: var(--font-display);
+  }
+
   /* Brand text selection */
   ::selection {
     background-color: color-mix(in oklab, var(--color-brand-red) 85%, black);
