@@ -93,21 +93,32 @@ export function MobileNav() {
               className="h-8 w-auto shrink-0 self-start"
             />
             <SheetTitle className="sr-only">Main menu</SheetTitle>
-            <div className="flex items-center gap-3">
-              <LangToggle />
-              <SheetClose
-                render={
-                  <button
-                    type="button"
-                    aria-label="Close menu"
-                    className="inline-flex size-12 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white backdrop-blur-sm transition-all hover:border-brand-red hover:bg-brand-red active:scale-95"
-                  />
-                }
-              >
-                <X className="h-5 w-5" />
-              </SheetClose>
-            </div>
+            <SheetClose
+              render={
+                <button
+                  type="button"
+                  aria-label="Close menu"
+                  className="inline-flex size-12 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white backdrop-blur-sm transition-all hover:border-brand-red hover:bg-brand-red active:scale-95"
+                />
+              }
+            >
+              <X className="h-5 w-5" />
+            </SheetClose>
           </SheetHeader>
+
+          {/* Language — its own clean row up top, not buried in the footer */}
+          <motion.div
+            variants={itemVariants}
+            initial={reduce ? false : "hidden"}
+            animate="show"
+            transition={{ delay: 0.12 }}
+            className="mt-5 flex items-center justify-between gap-4 border-t border-white/10 pt-4"
+          >
+            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-fg-subtle">
+              {ui.language}
+            </span>
+            <LangToggle />
+          </motion.div>
 
           {/* Oversized nav */}
           <motion.nav
