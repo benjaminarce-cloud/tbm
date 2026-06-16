@@ -17,7 +17,8 @@ type CertMarqueeProps = {
  * compliance section (#compliance) on the one-page site.
  */
 export function CertMarquee({ className, speed = "40s" }: CertMarqueeProps) {
-  const CERTIFICATIONS = useContent().certifications;
+  const content = useContent();
+  const CERTIFICATIONS = content.certifications;
   const items = [...CERTIFICATIONS, ...CERTIFICATIONS];
 
   return (
@@ -29,7 +30,7 @@ export function CertMarquee({ className, speed = "40s" }: CertMarqueeProps) {
         className
       )}
       role="region"
-      aria-label="Certifications"
+      aria-label={content.ui.certifications}
     >
       <div
         className="flex w-max items-stretch gap-5 animate-marquee group-hover:[animation-play-state:paused]"

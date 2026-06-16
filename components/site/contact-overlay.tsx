@@ -63,7 +63,7 @@ export function ContactOverlay() {
                 className="h-8 w-auto shrink-0"
               />
               <Dialog.Close
-                aria-label="Close contact"
+                aria-label={ui.close}
                 className="inline-flex size-12 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white backdrop-blur-sm transition-all hover:border-brand-red hover:bg-brand-red active:scale-95"
               >
                 <X className="h-5 w-5" aria-hidden="true" />
@@ -144,7 +144,7 @@ export function ContactOverlay() {
                         </a>
                         <CopyButton
                           text={p}
-                          label={`Copy phone number ${p}`}
+                          label={`${ui.copyPhone} ${p}`}
                           className="border-white/15 bg-white/[0.06] text-fg-subtle hover:bg-white/10"
                         />
                       </li>

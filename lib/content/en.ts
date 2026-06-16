@@ -92,6 +92,15 @@ export const EN = {
     allRightsReserved: "All rights reserved.",
     operatingSince: "Operating since",
     track: "Track",
+    // Screen-reader / control labels
+    openMenu: "Open menu",
+    mobileNav: "Mobile navigation",
+    showOnMap: "show on the network map",
+    certifications: "Certifications",
+    highlights: "TBM highlights",
+    contactByEmail: "Contact sales by email",
+    copyPhone: "Copy phone number",
+    salesSubject: "Sales inquiry — TBM Carriers",
   },
 
   /** Interactive network-map labels (filters, lane planner, results). */

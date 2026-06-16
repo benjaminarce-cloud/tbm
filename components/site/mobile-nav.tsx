@@ -57,7 +57,7 @@ export function MobileNav() {
             variant="ghost"
             size="icon"
             className="size-9 text-white transition-transform hover:bg-white/10 hover:text-white active:scale-95 lg:hidden"
-            aria-label="Open menu"
+            aria-label={ui.openMenu}
           />
         }
       >
@@ -92,12 +92,12 @@ export function MobileNav() {
               sizes="140px"
               className="h-8 w-auto shrink-0 self-start"
             />
-            <SheetTitle className="sr-only">Main menu</SheetTitle>
+            <SheetTitle className="sr-only">{ui.menu}</SheetTitle>
             <SheetClose
               render={
                 <button
                   type="button"
-                  aria-label="Close menu"
+                  aria-label={ui.close}
                   className="inline-flex size-12 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white backdrop-blur-sm transition-all hover:border-brand-red hover:bg-brand-red active:scale-95"
                 />
               }
@@ -122,7 +122,7 @@ export function MobileNav() {
 
           {/* Oversized nav */}
           <motion.nav
-            aria-label="Mobile"
+            aria-label={ui.mobileNav}
             variants={list}
             initial="hidden"
             animate="show"

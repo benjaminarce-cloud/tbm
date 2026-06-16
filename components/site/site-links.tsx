@@ -1,5 +1,8 @@
+"use client";
+
 import { type ReactNode } from "react";
 import { SITE } from "@/lib/content/site";
+import { useContent } from "@/lib/i18n-client";
 import { cn, mailtoHref } from "@/lib/utils";
 
 /** External "Track Shipment" link to the TMS portal. */
@@ -31,18 +34,19 @@ export function TrackShipmentLink({
 export function ContactSalesLink({
   className,
   children,
-  subject = "Sales inquiry — TBM Carriers",
+  subject,
   ...rest
 }: {
   className?: string;
   children: ReactNode;
   subject?: string;
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+  const { ui } = useContent();
   return (
     <a
-      href={mailtoHref(SITE.salesEmail, subject)}
+      href={mailtoHref(SITE.salesEmail, subject ?? ui.salesSubject)}
       className={cn("font-display", className)}
-      aria-label="Contact sales by email"
+      aria-label={ui.contactByEmail}
       {...rest}
     >
       {children}

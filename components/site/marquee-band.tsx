@@ -11,6 +11,7 @@ import {
   useTransform,
   useVelocity,
 } from "motion/react";
+import { useContent } from "@/lib/i18n-client";
 import { cn } from "@/lib/utils";
 
 type MarqueeBandProps = {
@@ -32,6 +33,7 @@ function wrapRange(min: number, max: number, v: number) {
  */
 export function MarqueeBand({ words, className, baseSpeed = 4.5 }: MarqueeBandProps) {
   const reduce = useReducedMotion();
+  const { ui } = useContent();
   const items = [...words, ...words];
 
   const baseX = useMotionValue(0);
@@ -58,7 +60,7 @@ export function MarqueeBand({ words, className, baseSpeed = 4.5 }: MarqueeBandPr
 
   return (
     <section
-      aria-label="TBM highlights"
+      aria-label={ui.highlights}
       className={cn(
         "relative isolate overflow-hidden border-y border-white/10 bg-brand-indigo-deep py-5 md:py-6",
         "[mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]",

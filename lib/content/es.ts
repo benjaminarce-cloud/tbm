@@ -494,6 +494,14 @@ export const ES: Dictionary = {
     allRightsReserved: "Todos los derechos reservados.",
     operatingSince: "Operando desde",
     track: "Rastrear",
+    openMenu: "Abrir menú",
+    mobileNav: "Navegación móvil",
+    showOnMap: "ver en el mapa de la red",
+    certifications: "Certificaciones",
+    highlights: "Destacados de TBM",
+    contactByEmail: "Contactar a ventas por correo",
+    copyPhone: "Copiar número de teléfono",
+    salesSubject: "Consulta de ventas — TBM Carriers",
   },
 
   map: {

@@ -22,7 +22,8 @@ const US_TO_ID: Record<string, string> = {
  * that gateway on the NetworkMap above (via FOCUS_LOCATION_EVENT).
  */
 export function CrossingChips({ className }: { className?: string }) {
-  const { crossings } = useContent().home.network;
+  const content = useContent();
+  const { crossings } = content.home.network;
   return (
     <ul
       className={cn(
@@ -36,7 +37,7 @@ export function CrossingChips({ className }: { className?: string }) {
           <Reveal as="li" key={`${c.us}-${c.mx}`} delay={i * 0.04} y={12}>
             <button
               type="button"
-              aria-label={`Show the ${c.us} ↔ ${c.mx} gateway on the network map`}
+              aria-label={`${c.us} ↔ ${c.mx} — ${content.ui.showOnMap}`}
               onClick={() =>
                 id &&
                 window.dispatchEvent(

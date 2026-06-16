@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useId } from "react";
 import { usePathname } from "next/navigation";
 import { motion, useReducedMotion } from "motion/react";
-import { useLocale } from "@/lib/i18n-client";
+import { useLocale, useContent } from "@/lib/i18n-client";
 import { LOCALES, localizePath, stripLocale, type Locale } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 export function LangToggle({ className }: { className?: string }) {
   const pathname = usePathname();
   const locale = useLocale();
+  const { ui } = useContent();
   const reduce = useReducedMotion();
   const pillId = useId();
   const base = stripLocale(pathname);
@@ -26,7 +27,7 @@ export function LangToggle({ className }: { className?: string }) {
   return (
     <motion.div
       role="group"
-      aria-label="Language"
+      aria-label={ui.language}
       whileHover={reduce ? undefined : { scale: 1.04 }}
       whileTap={reduce ? undefined : { scale: 0.96 }}
       className={cn(
