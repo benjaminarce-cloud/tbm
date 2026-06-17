@@ -41,7 +41,7 @@ function StaticNetwork({ eyebrow, headline, body }: NetworkRevealProps) {
         <TextReveal
           as="h2"
           text={headline}
-          className="mt-3 max-w-3xl font-display text-display-sm font-extrabold tracking-tight sm:text-display-md"
+          className="mt-3 max-w-3xl font-heading text-display-sm font-extrabold tracking-tight sm:text-display-md"
         />
         <p className="mt-5 max-w-3xl text-base leading-relaxed text-fg-muted md:text-lg">
           {body}

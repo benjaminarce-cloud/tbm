@@ -14,13 +14,13 @@
   --color-fg-muted: #626262;
   --color-fg-subtle: #b5b4c7;
 
-  /* Typography — condensed caps for titles (Oswald), elegant serif for the
-     rest (Cormorant Garamond). Inspired by the Richard Mille type system. */
-  /* Body & "the rest of the page" — elegant serif (Cormorant Garamond). */
+  /* Richard Mille type system:
+     - heading: wide squared techno (Orbitron) — the big bold titles + stats.
+     - display: condensed caps (Oswald) — nav, buttons, eyebrows, labels.
+     - sans:    elegant serif (Cormorant Garamond) — body / reading text. */
   --font-sans: var(--font-cormorant);
-  /* Bold titles — condensed caps (Oswald), RICHARD MILLE energy. */
   --font-display: var(--font-oswald);
-  --font-heading: var(--font-oswald);
+  --font-heading: var(--font-orbitron);
 
   /* Display scale — fluid (mobile-first). Each clamp reaches its ceiling by
      ~1150px, so standard desktop (1280px+) renders the original fixed sizes. */

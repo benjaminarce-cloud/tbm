@@ -25,7 +25,7 @@ export function CtaBand({ eyebrow = "Ready when you are", title, body }: CtaBand
         <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
           {eyebrow}
         </p>
-        <h2 className="mt-3 font-display text-display-sm font-extrabold tracking-tight text-balance sm:text-display-md">
+        <h2 className="mt-3 font-heading text-display-sm font-extrabold tracking-tight text-balance sm:text-display-md">
           {title}
         </h2>
         {body && (

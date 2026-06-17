@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Oswald, Cormorant_Garamond } from "next/font/google";
+import { Oswald, Orbitron, Cormorant_Garamond } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -12,8 +12,18 @@ import { MobileCtaBar } from "@/components/site/mobile-cta-bar";
 import { ScrollProgress } from "@/components/site/scroll-progress";
 import { SITE } from "@/lib/content/site";
 
-// Bold titles — tall condensed caps in the spirit of the RICHARD MILLE
-// wordmark. Oswald maxes at 700; font-black/extrabold classes resolve to it.
+// Bold titles — squared, wide, extended techno caps in the spirit of the
+// RICHARD MILLE wordmark (Eurostile/Microgramma family). Powers every big
+// heading and the stat counters.
+const orbitron = Orbitron({
+  variable: "--font-orbitron",
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800", "900"],
+  display: "swap",
+});
+
+// Structural UI — nav, buttons, eyebrows, labels. Condensed so the long nav
+// items stay compact; pairs with the wide Orbitron titles.
 const oswald = Oswald({
   variable: "--font-oswald",
   subsets: ["latin"],
@@ -100,6 +110,7 @@ export default function RootLayout({
       lang="en"
       className={cn(
         "h-full antialiased",
+        orbitron.variable,
         oswald.variable,
         cormorant.variable,
         "font-sans"

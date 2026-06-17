@@ -94,7 +94,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
             </span>
           </div>
           <h1
-            className="animate-rise mt-6 max-w-6xl font-display text-display-lg font-black uppercase leading-[0.9] tracking-[-0.015em] text-brand-red sm:text-display-xl lg:text-display-2xl"
+            className="animate-rise mt-6 max-w-6xl font-heading text-display-sm font-black uppercase leading-[1.04] tracking-[-0.01em] text-brand-red sm:text-display-md lg:text-display-lg"
             style={{ animationDelay: "60ms" }}
           >
             {HOME.hero.headline}
@@ -178,7 +178,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
             <TextReveal
               as="h2"
               text={HOME.about.headline}
-              className="mt-3 font-display text-display-sm font-extrabold tracking-tight sm:text-display-md"
+              className="mt-3 font-heading text-display-sm font-extrabold tracking-tight sm:text-display-md"
             />
             {HOME.about.body.map((p, i) => (
               <p
@@ -211,7 +211,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
             <TextReveal
               as="h2"
               text={ABOUT.mvh.headline}
-              className="mt-3 max-w-3xl font-display text-display-sm font-extrabold tracking-tight sm:text-display-md"
+              className="mt-3 max-w-3xl font-heading text-display-sm font-extrabold tracking-tight sm:text-display-md"
             />
           </Reveal>
           <ul className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 max-md:-mx-4 max-md:flex max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-4 max-md:pb-3 max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden">
@@ -245,7 +245,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
             <TextReveal
               as="h3"
               text={ABOUT.pillarsIntro.headline}
-              className="mt-3 max-w-3xl font-display text-display-sm font-extrabold tracking-tight"
+              className="mt-3 max-w-3xl font-heading text-display-sm font-extrabold tracking-tight"
             />
             <p className="mt-5 max-w-3xl text-base leading-relaxed text-fg-muted md:text-lg">
               {ABOUT.pillarsIntro.body}
@@ -264,7 +264,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-red/10 text-brand-red ring-1 ring-brand-red/20 transition-transform duration-300 group-hover/spot:scale-110">
                       <Icon className="h-6 w-6" aria-hidden="true" />
                     </div>
-                    <h4 className="mt-6 font-display text-xl font-extrabold uppercase tracking-wider">
+                    <h4 className="mt-6 font-heading text-xl font-extrabold uppercase tracking-wider">
                       {pillar.title}
                     </h4>
                     <p className="mt-3 text-sm leading-relaxed text-fg-muted">
@@ -289,7 +289,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
             <TextReveal
               as="h2"
               text={HOME.crossBorder.headline}
-              className="mt-3 max-w-2xl font-display text-display-sm font-extrabold tracking-tight sm:text-display-md"
+              className="mt-3 max-w-2xl font-heading text-display-sm font-extrabold tracking-tight sm:text-display-md"
             />
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-fg-muted md:text-lg">
               {HOME.crossBorder.subhead}
@@ -305,7 +305,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
                   <span className="mb-5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-brand-red/10 font-display text-sm font-extrabold text-brand-red">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="font-display text-xl font-extrabold uppercase tracking-wider">
+                  <h3 className="font-heading text-xl font-extrabold uppercase tracking-wider">
                     {pillar.title}
                   </h3>
                   <p className="mt-3 text-base leading-relaxed text-fg-muted">
@@ -334,7 +334,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-red/10 font-display text-sm font-extrabold text-brand-red">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="mt-6 max-w-3xl font-display text-display-sm font-extrabold uppercase tracking-wide">
+                    <h3 className="mt-6 max-w-3xl font-heading text-display-sm font-extrabold uppercase tracking-wide">
                       {pillar.title}
                     </h3>
                     <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-muted lg:text-lg">
@@ -367,7 +367,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
             <TextReveal
               as="h2"
               text={HOME.crossDock.headline}
-              className="mt-3 font-display text-display-sm font-extrabold tracking-tight sm:text-display-md"
+              className="mt-3 font-heading text-display-sm font-extrabold tracking-tight sm:text-display-md"
             />
             <p className="mt-5 text-base leading-relaxed text-fg-muted md:text-lg">
               {HOME.crossDock.body}
@@ -409,7 +409,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
               {HOME.texasBand.eyebrow}
             </p>
-            <h2 className="mt-4 mx-auto max-w-3xl font-display text-display-sm font-extrabold tracking-tight text-balance sm:text-display-md">
+            <h2 className="mt-4 mx-auto max-w-3xl font-heading text-display-sm font-extrabold tracking-tight text-balance sm:text-display-md">
               {HOME.texasBand.headline}
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-fg-subtle md:text-lg">
@@ -434,7 +434,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
               {HOME.howItWorks.eyebrow}
             </p>
-            <h2 className="mt-3 max-w-2xl font-display text-display-sm font-extrabold tracking-tight text-balance sm:text-display-md">
+            <h2 className="mt-3 max-w-2xl font-heading text-display-sm font-extrabold tracking-tight text-balance sm:text-display-md">
               {HOME.howItWorks.headline}
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-fg-subtle md:text-lg">
@@ -465,7 +465,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
                     <span className="absolute -top-4 left-6 inline-flex h-8 items-center rounded-full bg-brand-red px-4 text-[10px] font-bold uppercase tracking-[0.2em] lg:left-8">
                       Step {step.n}
                     </span>
-                    <h3 className="font-display text-2xl font-extrabold uppercase tracking-wider">
+                    <h3 className="font-heading text-2xl font-extrabold uppercase tracking-wider">
                       {step.title}
                     </h3>
                     <p className="mt-3 text-fg-subtle">{step.body}</p>
@@ -501,7 +501,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
             <TextReveal
               as="h2"
               text={ui.servicesHeadline}
-              className="mt-3 max-w-2xl font-display text-display-sm font-extrabold tracking-tight sm:text-display-md"
+              className="mt-3 max-w-2xl font-heading text-display-sm font-extrabold tracking-tight sm:text-display-md"
             />
           </Reveal>
           <Reveal delay={0.1} className="mt-12">
@@ -527,7 +527,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
             <TextReveal
               as="h3"
               text={ui.integratedHeadline}
-              className="mt-3 max-w-3xl font-display text-display-sm font-extrabold tracking-tight"
+              className="mt-3 max-w-3xl font-heading text-display-sm font-extrabold tracking-tight"
             />
           </Reveal>
           <ul className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3 max-md:-mx-4 max-md:flex max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-4 max-md:pb-3 max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden">
@@ -540,7 +540,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
                   <span className="font-display text-sm font-extrabold tracking-[0.3em] text-brand-red">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h4 className="mt-3 font-display text-xl font-extrabold uppercase tracking-wider">
+                  <h4 className="mt-3 font-heading text-xl font-extrabold uppercase tracking-wider">
                     {feature.title}
                   </h4>
                   <p className="mt-3 text-sm leading-relaxed text-fg-muted">
@@ -601,7 +601,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
               <TextReveal
                 as="h3"
                 text={SERVICES_AI.headline}
-                className="mt-3 font-display text-display-sm font-extrabold tracking-tight"
+                className="mt-3 font-heading text-display-sm font-extrabold tracking-tight"
               />
               <p className="mt-5 text-base leading-relaxed text-fg-muted md:text-lg">
                 {SERVICES_AI.body}
@@ -635,7 +635,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
             <TextReveal
               as="h2"
               text={HOME.whyUs.headline}
-              className="mt-3 max-w-3xl font-display text-display-sm font-extrabold tracking-tight sm:text-display-md"
+              className="mt-3 max-w-3xl font-heading text-display-sm font-extrabold tracking-tight sm:text-display-md"
             />
             <p className="mt-5 max-w-3xl text-base leading-relaxed text-fg-muted md:text-lg">
               {HOME.whyUs.body}
@@ -683,7 +683,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
             <TextReveal
               as="h2"
               text="The credentials that keep your freight in the fast lane"
-              className="mx-auto mt-3 max-w-2xl font-display text-display-sm font-extrabold tracking-tight"
+              className="mx-auto mt-3 max-w-2xl font-heading text-display-sm font-extrabold tracking-tight"
             />
           </Reveal>
           <div className="mt-10">
@@ -715,7 +715,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
             <TextReveal
               as="h2"
               text={ui.complianceHeadline}
-              className="mt-3 font-display text-display-sm font-extrabold tracking-tight sm:text-display-md"
+              className="mt-3 font-heading text-display-sm font-extrabold tracking-tight sm:text-display-md"
             />
             <p className="mt-5 text-base leading-relaxed text-fg-muted md:text-lg">
               {ui.complianceIntro}
@@ -792,7 +792,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
               {HOME.finalCta.eyebrow}
             </p>
-            <h2 className="mt-4 max-w-3xl font-display text-display-sm font-extrabold tracking-tight text-balance sm:text-display-md">
+            <h2 className="mt-4 max-w-3xl font-heading text-display-sm font-extrabold tracking-tight text-balance sm:text-display-md">
               {HOME.finalCta.headline}
             </h2>
             <ContactSalesLink

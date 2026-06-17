@@ -42,7 +42,7 @@ export function Footer() {
                 <span className="inline-flex items-center gap-2 rounded-full border border-brand-red/30 bg-brand-red/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-red">
                   {ui.footerCtaEyebrow} {SITE.foundedYear}
                 </span>
-                <h2 className="mt-4 font-display text-display-sm font-extrabold leading-tight">
+                <h2 className="mt-4 font-heading text-display-sm font-extrabold leading-tight">
                   {ui.footerCtaHeadlineA}{" "}
                   <span className="text-gradient-brand">{ui.footerCtaHeadlineB}</span>
                 </h2>

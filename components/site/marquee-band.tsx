@@ -77,7 +77,7 @@ export function MarqueeBand({ words, className, baseSpeed = 4.5 }: MarqueeBandPr
             aria-hidden={i >= words.length}
             className="flex shrink-0 items-center gap-8 md:gap-12"
           >
-            <span className="font-display text-2xl font-extrabold uppercase tracking-wider text-white/90 md:text-4xl">
+            <span className="font-heading text-2xl font-extrabold uppercase tracking-wider text-white/90 md:text-4xl">
               {w}
             </span>
             <span

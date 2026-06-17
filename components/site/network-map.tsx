@@ -710,7 +710,7 @@ export function NetworkMap({
                 </div>
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
                   <p className="text-sm">
-                    <span className="font-display text-xl font-extrabold tabular-nums text-brand-red sm:text-2xl">
+                    <span className="font-heading text-xl font-extrabold tabular-nums text-brand-red sm:text-2xl">
                       {lane.miles.toLocaleString()}
                     </span>{" "}
                     <span className="text-fg-subtle">
@@ -718,7 +718,7 @@ export function NetworkMap({
                     </span>
                   </p>
                   <p className="text-sm">
-                    <span className="font-display text-xl font-extrabold tabular-nums text-brand-red sm:text-2xl">
+                    <span className="font-heading text-xl font-extrabold tabular-nums text-brand-red sm:text-2xl">
                       {lane.daysMin === lane.daysMax
                         ? `~${lane.daysMin}`
                         : `${lane.daysMin}–${lane.daysMax}`}

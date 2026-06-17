@@ -68,7 +68,7 @@ export function BorderJourney({
           <TextReveal
             as="h2"
             text={headline}
-            className="mt-3 font-display text-display-sm font-extrabold tracking-tight sm:text-display-md"
+            className="mt-3 font-heading text-display-sm font-extrabold tracking-tight sm:text-display-md"
           />
           <p className="mt-5 text-base leading-relaxed text-fg-subtle md:text-lg">
             {body}
@@ -129,7 +129,7 @@ export function BorderJourney({
                       <span className="font-display text-sm font-extrabold tracking-[0.3em] text-brand-red">
                         {stage.n}
                       </span>
-                      <h3 className="mt-3 font-display text-xl font-extrabold uppercase tracking-wider md:text-2xl">
+                      <h3 className="mt-3 font-heading text-xl font-extrabold uppercase tracking-wider md:text-2xl">
                         {stage.title}
                       </h3>
                       <p className="mt-3 leading-relaxed text-fg-subtle">

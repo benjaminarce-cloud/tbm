@@ -75,7 +75,7 @@ export function ContactOverlay() {
               <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
                 {ui.contactEyebrow}
               </p>
-              <Dialog.Title className="mt-3 max-w-3xl font-display text-display-md font-black leading-[0.95] tracking-[-0.02em]">
+              <Dialog.Title className="mt-3 max-w-3xl font-heading text-display-md font-black leading-[0.95] tracking-[-0.02em]">
                 {ui.contactTitle}
               </Dialog.Title>
               <Dialog.Description className="mt-4 max-w-2xl text-sm leading-relaxed text-fg-subtle md:text-base">

@@ -43,7 +43,7 @@ export function Faq() {
         <TextReveal
           as="h2"
           text={headline}
-          className="mt-3 font-display text-display-sm font-extrabold tracking-tight sm:text-display-md"
+          className="mt-3 font-heading text-display-sm font-extrabold tracking-tight sm:text-display-md"
         />
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-fg-muted md:text-lg">
           {body}

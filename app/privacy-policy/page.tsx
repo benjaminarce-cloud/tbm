@@ -17,7 +17,7 @@ export default function PrivacyPolicyPage() {
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
             Legal
           </p>
-          <h1 className="mt-4 font-display text-display-md font-extrabold leading-[0.95] tracking-[-0.02em] text-balance sm:text-display-lg">
+          <h1 className="mt-4 font-heading text-display-md font-extrabold leading-[0.95] tracking-[-0.02em] text-balance sm:text-display-lg">
             {PRIVACY_POLICY.title}
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-fg-subtle">
@@ -56,7 +56,7 @@ export default function PrivacyPolicyPage() {
           <article className="max-w-none space-y-12">
             {PRIVACY_POLICY.sections.map((s) => (
               <section key={s.id} id={s.id} className="scroll-mt-32">
-                <h2 className="font-display text-2xl font-extrabold uppercase tracking-wider text-foreground">
+                <h2 className="font-heading text-2xl font-extrabold uppercase tracking-wider text-foreground">
                   {s.title}
                 </h2>
                 <div className="mt-4 space-y-4 text-base leading-relaxed text-fg-muted">
@@ -85,7 +85,7 @@ export default function PrivacyPolicyPage() {
             ))}
 
             <section className="rounded-2xl border border-black/5 bg-muted/30 p-8">
-              <h2 className="font-display text-2xl font-extrabold uppercase tracking-wider">
+              <h2 className="font-heading text-2xl font-extrabold uppercase tracking-wider">
                 Questions about this policy?
               </h2>
               <p className="mt-3 text-fg-muted">
