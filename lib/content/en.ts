@@ -47,6 +47,7 @@ export const EN = {
     seeAllServices: "See all services",
     learnAboutUs: "Learn About Us",
     learnMore: "Learn more",
+    learnMoreAbout: "Learn more about",
     serviceOverview: "Overview",
     serviceHighlights: "Highlights",
     moreServices: "More services",

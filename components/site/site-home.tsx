@@ -66,6 +66,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
               alt=""
               fill
               priority
+              quality={55}
               sizes="100vw"
               className="object-cover"
             />
@@ -221,7 +222,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
                   className="h-full rounded-2xl border border-black/5 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-xl hover:shadow-brand-indigo/10"
                   glow="color-mix(in oklab, var(--color-brand-red) 12%, transparent)"
                 >
-                  <span className="font-display text-sm font-extrabold tracking-[0.3em] text-brand-red/60">
+                  <span className="font-display text-sm font-extrabold tracking-[0.3em] text-brand-indigo/70">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="mt-3 text-xs font-semibold uppercase tracking-[0.25em] text-brand-red">
@@ -304,7 +305,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
                   className="h-full rounded-2xl border border-black/5 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-xl hover:shadow-brand-indigo/10 lg:p-8"
                   glow="color-mix(in oklab, var(--color-brand-red) 12%, transparent)"
                 >
-                  <span className="mb-5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-brand-red/10 font-display text-sm font-extrabold text-brand-red">
+                  <span className="mb-5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-brand-red/10 font-display text-sm font-extrabold text-brand-indigo">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="font-heading text-xl font-extrabold uppercase tracking-wider">
@@ -327,13 +328,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
                     className="relative overflow-hidden rounded-3xl border border-black/5 bg-white p-10 shadow-[0_24px_70px_-30px_rgba(15,11,38,0.35)] lg:p-14"
                     glow="color-mix(in oklab, var(--color-brand-red) 10%, transparent)"
                   >
-                    <span
-                      aria-hidden="true"
-                      className="pointer-events-none absolute -right-4 top-1/2 -translate-y-1/2 select-none font-display text-[11rem] font-black leading-none text-brand-indigo/[0.05]"
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-red/10 font-display text-sm font-extrabold text-brand-red">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-red/10 font-display text-sm font-extrabold text-brand-indigo">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <h3 className="mt-6 max-w-3xl font-heading text-display-sm font-extrabold uppercase tracking-wide">
@@ -493,6 +488,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
           <div className="mt-10 text-center">
             <Link
               href={locale === "es" ? "/es/network" : "/network"}
+              aria-label={`${ui.learnMoreAbout} ${nav.networkServices}`}
               className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-brand-red transition-opacity hover:opacity-70"
             >
               {ui.learnMore}

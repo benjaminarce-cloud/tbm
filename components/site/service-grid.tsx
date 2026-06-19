@@ -71,6 +71,7 @@ export function ServiceGrid({ variant = "bento", className }: ServiceGridProps) 
         </p>
         <Link
           href={`${base}/services/${feature.slug}`}
+          aria-label={`${c.ui.learnMoreAbout} ${feature.title}`}
           className="group/lm mt-6 inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wider text-brand-red transition-colors hover:text-[#ff8a6e]"
         >
           {c.ui.learnMore}
@@ -112,6 +113,7 @@ function ServiceCard({ service }: { service: ServiceItem }) {
       </p>
       <Link
         href={`${base}/services/${service.slug}`}
+        aria-label={`${ui.learnMoreAbout} ${service.title}`}
         className="group/lm mt-4 inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wider text-brand-red transition-opacity hover:opacity-70"
       >
         {ui.learnMore}

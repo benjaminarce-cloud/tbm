@@ -89,7 +89,7 @@ export function AboutPageView({ locale }: { locale: Locale }) {
                 key={item.label}
                 className="rounded-2xl border border-black/5 bg-muted/20 p-6"
               >
-                <span className="font-display text-sm font-extrabold tracking-[0.3em] text-brand-red/60">
+                <span className="font-display text-sm font-extrabold tracking-[0.3em] text-brand-indigo/70">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="mt-3 text-xs font-semibold uppercase tracking-[0.25em] text-brand-red">

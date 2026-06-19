@@ -457,6 +457,7 @@ export const ES: Dictionary = {
     seeAllServices: "Ver todos los servicios",
     learnAboutUs: "Conócenos",
     learnMore: "Ver más",
+    learnMoreAbout: "Ver más sobre",
     serviceOverview: "Resumen",
     serviceHighlights: "Puntos clave",
     moreServices: "Más servicios",
