@@ -1,6 +1,7 @@
 "use client";
 
 import { type ReactNode } from "react";
+import { track } from "@vercel/analytics";
 import { SITE } from "@/lib/content/site";
 import { useContent } from "@/lib/i18n-client";
 import { cn, mailtoHref } from "@/lib/utils";
@@ -9,6 +10,7 @@ import { cn, mailtoHref } from "@/lib/utils";
 export function TrackShipmentLink({
   className,
   children,
+  onClick,
   ...rest
 }: {
   className?: string;
@@ -19,6 +21,10 @@ export function TrackShipmentLink({
       href={SITE.trackingUrl}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={(e) => {
+        track("track_shipment");
+        onClick?.(e);
+      }}
       className={cn("font-display", className)}
       {...rest}
     >
@@ -35,6 +41,7 @@ export function ContactSalesLink({
   className,
   children,
   subject,
+  onClick,
   ...rest
 }: {
   className?: string;
@@ -45,6 +52,10 @@ export function ContactSalesLink({
   return (
     <a
       href={mailtoHref(SITE.salesEmail, subject ?? ui.salesSubject)}
+      onClick={(e) => {
+        track("contact_sales");
+        onClick?.(e);
+      }}
       className={cn("font-display", className)}
       aria-label={ui.contactByEmail}
       {...rest}

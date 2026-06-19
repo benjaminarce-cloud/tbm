@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 import { Dialog } from "@base-ui/react/dialog";
+import { track } from "@vercel/analytics";
 import { Mail, Phone, Truck, X } from "lucide-react";
 import { CopyButton } from "./copy-button";
 import { ContactSalesLink, TrackShipmentLink } from "./site-links";
@@ -61,7 +62,10 @@ export function ContactOverlay() {
   }, [open]);
 
   useEffect(() => {
-    const onOpen = () => setOpen(true);
+    const onOpen = () => {
+      setOpen(true);
+      track("open_contact");
+    };
     window.addEventListener(OPEN_CONTACT_EVENT, onOpen);
 
     // Open from the URL on a fresh load — the /contact route redirects here
