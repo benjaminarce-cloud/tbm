@@ -735,6 +735,18 @@ export function SiteHome({ locale }: { locale: Locale }) {
               </Reveal>
             ))}
           </ul>
+          <Reveal delay={0.1} className="mt-10 text-center">
+            <Link
+              href={locale === "es" ? "/es/compliance" : "/compliance"}
+              className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-brand-red transition-opacity hover:opacity-70"
+            >
+              {ui.partnershipsCerts}
+              <ArrowRight
+                className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </Link>
+          </Reveal>
           <Reveal
             delay={0.15}
             className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm"

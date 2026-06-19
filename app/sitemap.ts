@@ -47,6 +47,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...services,
     {
+      url: `${SITE.url}/compliance`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: {
+        languages: {
+          en: `${SITE.url}/compliance`,
+          es: `${SITE.url}/es/compliance`,
+        },
+      },
+    },
+    {
+      url: `${SITE.url}/es/compliance`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.7,
+      alternates: {
+        languages: {
+          en: `${SITE.url}/compliance`,
+          es: `${SITE.url}/es/compliance`,
+        },
+      },
+    },
+    {
       url: `${SITE.url}/privacy-policy`,
       lastModified,
       changeFrequency: "yearly",
