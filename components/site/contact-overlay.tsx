@@ -85,7 +85,7 @@ export function ContactOverlay() {
         <Dialog.Backdrop className="fixed inset-0 z-[70] bg-brand-indigo-deep/60 backdrop-blur-sm transition-opacity duration-300 data-ending-style:opacity-0 data-starting-style:opacity-0" />
         {/* Mobile: rises as a rounded bottom-sheet (slide-up) leaving a backdrop
             strip on top. Desktop (md+): unchanged full-screen scale/fade takeover. */}
-        <Dialog.Popup ref={popupRef} className="fixed inset-x-0 bottom-0 top-0 z-[80] flex flex-col overflow-y-auto overscroll-contain bg-brand-indigo-deep text-white transition-all duration-300 ease-out data-ending-style:opacity-0 data-starting-style:opacity-0 max-lg:top-16 max-lg:rounded-t-3xl max-lg:shadow-2xl max-lg:data-ending-style:translate-y-full max-lg:data-starting-style:translate-y-full lg:data-ending-style:scale-[0.985] lg:data-starting-style:scale-[0.985]">
+        <Dialog.Popup ref={popupRef} className="fixed inset-x-0 bottom-0 top-0 z-[80] flex flex-col overflow-y-auto overscroll-contain bg-brand-indigo-deep text-white transition-all duration-300 ease-out data-ending-style:opacity-0 data-starting-style:opacity-0 max-lg:shadow-2xl max-lg:data-ending-style:translate-y-full max-lg:data-starting-style:translate-y-full lg:data-ending-style:scale-[0.985] lg:data-starting-style:scale-[0.985]">
           {/* Backdrop layers */}
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-b from-brand-indigo via-brand-indigo-deep to-brand-indigo-deep" />
@@ -128,38 +128,38 @@ export function ContactOverlay() {
             </div>
 
             {/* Headline — same words as the contact page */}
-            <div className="mt-10 md:mt-14">
+            <div className="mt-6 md:mt-14">
               <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red-bright">
                 {ui.contactEyebrow}
               </p>
-              <Dialog.Title className="mt-3 max-w-3xl font-heading text-display-md font-black leading-[0.95] tracking-[-0.02em]">
+              <Dialog.Title className="mt-2 max-w-3xl font-heading text-[1.75rem] font-black leading-[1.02] tracking-[-0.02em] sm:mt-3 sm:text-display-md sm:leading-[0.95]">
                 {ui.contactTitle}
               </Dialog.Title>
-              <Dialog.Description className="mt-4 max-w-2xl text-sm leading-relaxed text-fg-subtle md:text-base">
+              <Dialog.Description className="mt-3 max-w-2xl text-sm leading-relaxed text-fg-subtle sm:mt-4 md:text-base">
                 {ui.contactSubtitle}
               </Dialog.Description>
             </div>
 
             {/* Primary actions */}
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <ContactSalesLink className="shine-hover group inline-flex h-13 items-center justify-center gap-2 rounded-full bg-primary px-8 text-base font-medium text-primary-foreground shadow-lg shadow-brand-red/25 transition-all hover:bg-primary/90 active:scale-[0.98]">
-                <Mail className="h-4 w-4" aria-hidden="true" />
+            <div className="mt-6 flex gap-3 sm:mt-8">
+              <ContactSalesLink className="shine-hover group inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-full bg-primary px-4 text-sm font-medium text-primary-foreground shadow-lg shadow-brand-red/25 transition-all hover:bg-primary/90 active:scale-[0.98] sm:h-13 sm:flex-none sm:px-8 sm:text-base">
+                <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
                 {ui.contactSales}
               </ContactSalesLink>
-              <TrackShipmentLink className="inline-flex h-13 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.04] px-8 text-base font-medium text-white backdrop-blur-sm transition-all hover:border-brand-red hover:bg-white/[0.08] active:scale-[0.98]">
-                <Truck className="h-4 w-4 text-brand-red-bright" aria-hidden="true" />
+              <TrackShipmentLink className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.04] px-4 text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-brand-red hover:bg-white/[0.08] active:scale-[0.98] sm:h-13 sm:flex-none sm:px-8 sm:text-base">
+                <Truck className="h-4 w-4 shrink-0 text-brand-red-bright" aria-hidden="true" />
                 {ui.trackShipment}
               </TrackShipmentLink>
             </div>
 
             {/* Phones + offices */}
-            <div className="mt-10 grid flex-1 grid-cols-1 content-start gap-4 sm:grid-cols-2">
+            <div className="mt-6 grid flex-1 grid-cols-2 content-start gap-3 sm:mt-10 sm:gap-4">
               {OFFICES.map((office, i) => (
                 <div
                   key={office.region}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm"
+                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-sm sm:p-6"
                 >
-                  <p className="flex items-center gap-2.5 text-xs font-semibold uppercase tracking-widest text-brand-red-bright">
+                  <p className="flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-brand-red-bright sm:text-xs sm:tracking-widest">
                     <Image
                       src={
                         i === 0
@@ -173,17 +173,17 @@ export function ContactOverlay() {
                     />
                     {i === 0 ? ui.regionUS : ui.regionMX}
                   </p>
-                  <p className="mt-3 font-display text-base font-extrabold uppercase tracking-wider">
+                  <p className="mt-2.5 font-display text-sm font-extrabold uppercase tracking-wider sm:mt-3 sm:text-base">
                     {office.legalName}
                   </p>
-                  <address className="mt-2 not-italic text-sm leading-relaxed text-fg-subtle">
+                  <address className="mt-1.5 not-italic text-xs leading-relaxed text-fg-subtle sm:mt-2 sm:text-sm">
                     {office.address.map((line) => (
                       <span key={line} className="block">
                         {line}
                       </span>
                     ))}
                   </address>
-                  <ul className="mt-4 space-y-2 text-sm">
+                  <ul className="mt-3 space-y-1.5 text-xs sm:mt-4 sm:space-y-2 sm:text-sm">
                     {office.phones.map((p) => (
                       <li
                         key={p}
@@ -211,7 +211,7 @@ export function ContactOverlay() {
               ))}
             </div>
 
-            <p className="mt-8 text-center text-[11px] uppercase tracking-[0.2em] text-fg-subtle">
+            <p className="mt-6 text-center text-[11px] uppercase tracking-[0.2em] text-fg-subtle sm:mt-8">
               {ui.replyWithin}
             </p>
           </div>
