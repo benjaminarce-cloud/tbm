@@ -452,6 +452,7 @@ export const ES: Dictionary = {
 
   ui: {
     contactSales: "Contactar a Ventas",
+    emailSales: "Escribir a Ventas",
     trackShipment: "Rastrear Envío",
     ourServices: "Nuestros Servicios",
     seeAllServices: "Ver todos los servicios",

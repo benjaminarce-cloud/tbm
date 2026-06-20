@@ -144,7 +144,7 @@ export function ContactOverlay() {
             <div className="mt-5 flex gap-3 sm:mt-8">
               <ContactSalesLink className="shine-hover group inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-full bg-primary px-4 text-sm font-medium text-primary-foreground shadow-lg shadow-brand-red/25 transition-all hover:bg-primary/90 active:scale-[0.98] sm:h-13 sm:flex-none sm:px-8 sm:text-base">
                 <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
-                {ui.contactSales}
+                {ui.emailSales}
               </ContactSalesLink>
               <TrackShipmentLink className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.04] px-4 text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-brand-red hover:bg-white/[0.08] active:scale-[0.98] sm:h-13 sm:flex-none sm:px-8 sm:text-base">
                 <Truck className="h-4 w-4 shrink-0 text-brand-red-bright" aria-hidden="true" />

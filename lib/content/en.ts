@@ -42,6 +42,7 @@ export const EN = {
   /** Shared micro-copy that used to be hardcoded in components. */
   ui: {
     contactSales: "Contact Sales",
+    emailSales: "Email Sales",
     trackShipment: "Track Shipment",
     ourServices: "Our Services",
     seeAllServices: "See all services",
