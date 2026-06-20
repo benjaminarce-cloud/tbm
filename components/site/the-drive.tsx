@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import {
   motion,
   useMotionValueEvent,
-  useReducedMotion,
   useScroll,
   useSpring,
   useTransform,
@@ -37,9 +36,24 @@ const TRUCK_X = 12;
  * with scroll velocity. Reduced motion falls back to the vertical journey.
  */
 export function TheDrive(props: TheDriveProps) {
-  const reduce = useReducedMotion();
-  if (reduce) return <BorderJourney {...props} />;
-  return <DriveScene {...props} />;
+  // The pinned scroll cinematic is heavy main-thread work (scroll listeners +
+  // per-frame transforms), so it runs only on tablet/desktop with motion
+  // enabled. Phones and reduced-motion users get the lighter — but still
+  // cinematic — vertical journey. SSR renders the fallback (no mobile CLS);
+  // the full scene mounts post-hydration on desktop only.
+  const [full, setFull] = useState(false);
+  useEffect(() => {
+    const decide = () =>
+      setFull(
+        window.matchMedia("(min-width: 768px)").matches &&
+          !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      );
+    decide();
+    const mq = window.matchMedia("(min-width: 768px)");
+    mq.addEventListener("change", decide);
+    return () => mq.removeEventListener("change", decide);
+  }, []);
+  return full ? <DriveScene {...props} /> : <BorderJourney {...props} />;
 }
 
 function DriveScene({ eyebrow, headline, body, stages }: TheDriveProps) {

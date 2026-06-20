@@ -90,7 +90,7 @@ export function SnapCarousel({
                 aria-selected={on}
                 aria-label={`${label}: ${i + 1} of ${count}`}
                 onClick={() => go(i)}
-                className="flex h-9 items-center px-1.5"
+                className="flex h-9 min-w-[1.75rem] items-center justify-center px-2.5"
               >
                 <span
                   className={cn(
