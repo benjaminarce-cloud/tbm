@@ -84,6 +84,29 @@ export function SiteHome({ locale }: { locale: Locale }) {
           <div className="grain-layer absolute inset-0 opacity-[0.06] mix-blend-overlay" />
           {/* Top vignette so the glass header blends */}
           <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-brand-indigo-deep/60 to-transparent" />
+          {/* Live highway light-trails — fan from the vanishing point and rush
+              toward the viewer. Pure CSS; hidden under reduced motion. */}
+          <div className="pointer-events-none absolute inset-0 overflow-hidden motion-reduce:hidden">
+            {[
+              { rot: -26, delay: "0s", dur: "6.2s" },
+              { rot: -15, delay: "1.9s", dur: "7s" },
+              { rot: -6, delay: "0.9s", dur: "5.6s" },
+              { rot: 4, delay: "2.7s", dur: "6.6s" },
+              { rot: 13, delay: "1.3s", dur: "7.3s" },
+              { rot: 23, delay: "3.3s", dur: "6.2s" },
+            ].map((t, i) => (
+              <span
+                key={i}
+                className="absolute left-[51%] top-[42%] origin-top"
+                style={{ transform: `rotate(${t.rot}deg)` }}
+              >
+                <span
+                  className="hero-trail"
+                  style={{ animationDelay: t.delay, animationDuration: t.dur }}
+                />
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="relative mx-auto flex w-full max-w-screen-2xl flex-1 flex-col justify-center px-4 pb-10 pt-28 text-white md:pb-10 md:pt-32 md:px-8">
@@ -115,18 +138,22 @@ export function SiteHome({ locale }: { locale: Locale }) {
             <ContactSalesLink
               className={cn(
                 buttonVariants(),
-                "shine-hover group h-12 gap-2 rounded-full px-8 text-base shadow-lg shadow-brand-red/25 transition-all hover:bg-primary/90 hover:shadow-xl hover:shadow-brand-red/30 active:scale-[0.98]"
+                "shine-hover group h-12 gap-2 rounded-full pl-7 pr-3 text-base font-semibold shadow-[0_12px_36px_-10px_rgba(213,61,40,0.7)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_48px_-10px_rgba(213,61,40,0.9)] active:translate-y-0 active:scale-[0.98] max-sm:w-full"
               )}
             >
               {ui.contactSales}
-              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <span className="grid size-7 place-items-center rounded-full bg-white/20 transition-all duration-300 group-hover:translate-x-0.5 group-hover:bg-white/30">
+                <ArrowRight className="h-4 w-4" />
+              </span>
             </ContactSalesLink>
             <JumpLink
               to="services"
-              className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 font-display text-base font-medium backdrop-blur-sm transition-all hover:border-white/40 hover:bg-white/10 active:scale-[0.98]"
+              className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] pl-7 pr-3 font-display text-base font-medium text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-white/45 hover:bg-white/[0.12] active:translate-y-0 active:scale-[0.98] sm:w-auto"
             >
               {ui.ourServices}
-              <ArrowUpRight className="h-4 w-4 text-brand-red transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <span className="grid size-7 place-items-center rounded-full bg-white/10 transition-all duration-300 group-hover:bg-brand-red">
+                <ArrowUpRight className="h-4 w-4 text-brand-red-bright transition-colors duration-300 group-hover:text-white" />
+              </span>
             </JumpLink>
           </div>
 

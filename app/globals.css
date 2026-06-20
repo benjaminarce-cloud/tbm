@@ -417,6 +417,45 @@
   isolation: isolate;
 }
 
+/* Hero highway light-trails — thin glints that fan out from the vanishing
+   point and rush toward the viewer, evoking live traffic on the corridor.
+   Pure GPU transform/opacity; the layer is hidden under reduced motion. */
+@keyframes hero-trail {
+  0% {
+    opacity: 0;
+    transform: translateY(-1.5rem) scaleY(0.35);
+  }
+  14% {
+    opacity: 0.72;
+  }
+  78% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(56vh) scaleY(1.5);
+  }
+}
+
+@utility hero-trail {
+  position: absolute;
+  top: 0;
+  height: 13rem;
+  width: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-brand-red-bright),
+    #fff 86%,
+    transparent
+  );
+  filter: blur(0.6px);
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: hero-trail 6s linear infinite;
+}
+
 /* Sheen that sweeps across an element on hover (CTAs, cards) */
 @utility shine-hover {
   position: relative;
