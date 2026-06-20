@@ -78,7 +78,7 @@ export function ContactPageView({ locale }: { locale: Locale }) {
           <div className="mt-8 flex flex-wrap gap-3">
             <ContactSalesLink className="shine-hover inline-flex h-13 items-center justify-center gap-2 rounded-full bg-primary px-8 text-base font-medium text-primary-foreground shadow-lg shadow-brand-red/25 transition-all hover:bg-primary/90 active:scale-[0.98]">
               <Mail className="h-4 w-4" aria-hidden="true" />
-              {ui.contactSales}
+              {ui.emailSales}
             </ContactSalesLink>
             <TrackShipmentLink className="inline-flex h-13 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.04] px-8 text-base font-medium text-white backdrop-blur-sm transition-all hover:border-brand-red hover:bg-white/[0.08] active:scale-[0.98]">
               <Truck className="h-4 w-4 text-brand-red" aria-hidden="true" />

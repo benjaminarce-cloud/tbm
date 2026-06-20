@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Check, Mail } from "lucide-react";
-import { ContactSalesLink, TrackShipmentLink } from "./site-links";
+import { TrackShipmentLink } from "./site-links";
+import { ContactPopupLink } from "./contact-popup-link";
 import { getContent, type Locale } from "@/lib/i18n";
 import { SITE } from "@/lib/content/site";
 import { mailtoHref } from "@/lib/utils";
@@ -141,9 +142,9 @@ export function CompliancePageView({ locale }: { locale: Locale }) {
               {c.complianceLead}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ContactSalesLink className="shine-hover inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-7 text-base font-medium text-primary-foreground shadow-lg shadow-brand-red/25 transition-all hover:bg-primary/90 active:scale-[0.98]">
+              <ContactPopupLink className="shine-hover inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-7 text-base font-medium text-primary-foreground shadow-lg shadow-brand-red/25 transition-all hover:bg-primary/90 active:scale-[0.98]">
                 {ui.contactSales} <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </ContactSalesLink>
+              </ContactPopupLink>
               <a
                 href={mailtoHref(SITE.safetyEmail)}
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-black/10 px-7 text-base font-medium transition-all hover:border-brand-red hover:text-brand-red active:scale-[0.98]"
