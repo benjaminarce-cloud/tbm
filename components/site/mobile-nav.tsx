@@ -71,7 +71,7 @@ export function MobileNav() {
         // Inline width: the base sheet's `data-[side=right]:w-3/4` variant
         // outranks utility overrides (class+attribute specificity).
         style={{ width: "100%", maxWidth: "none" }}
-        className="h-dvh overflow-y-auto overscroll-contain border-l-0 bg-brand-indigo-deep p-0 text-base text-white"
+        className="menu-fade h-dvh overflow-y-auto overscroll-contain border-l-0 bg-brand-indigo-deep p-0 text-base text-white"
       >
         {/* Backdrop — aurora, dot grid, grain */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">

@@ -434,6 +434,21 @@
   animation: hero-pan 28s ease-in-out infinite alternate;
 }
 
+/* Mobile menu (Sheet): fade + a tiny vertical drift on open/close instead of
+   the default horizontal side-slide, so it never reads as sliding in from the
+   side. !important overrides the Sheet's per-side translate utility. */
+.menu-fade[data-starting-style],
+.menu-fade[data-ending-style] {
+  translate: 0 -0.5rem !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-fade[data-starting-style],
+  .menu-fade[data-ending-style] {
+    translate: none !important;
+  }
+}
+
 /* Sheen that sweeps across an element on hover (CTAs, cards) */
 @utility shine-hover {
   position: relative;
