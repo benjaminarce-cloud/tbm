@@ -66,13 +66,16 @@ export function SiteHome({ locale }: { locale: Locale }) {
               alt=""
               fill
               priority
-              quality={55}
+              quality={72}
               sizes="100vw"
               className="object-cover"
             />
           </ParallaxLayer>
-          <div className="absolute inset-0 bg-brand-indigo/85" />
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-indigo/50 via-transparent to-brand-indigo-deep/85" />
+          {/* Scrim — dark enough for legible text, light enough to let the
+              highway light-trails show through (was a flat 85% that hid it). */}
+          <div className="absolute inset-0 bg-brand-indigo/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-indigo-deep/90 via-brand-indigo/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-indigo-deep via-brand-indigo/25 to-transparent" />
           {/* Aurora glows */}
           <div className="animate-aurora absolute -left-24 top-1/4 h-[30rem] w-[30rem] rounded-full bg-brand-red/20 blur-3xl" />
           <div className="animate-float-slow absolute -right-10 top-0 h-[26rem] w-[26rem] rounded-full bg-[#3a2f6b]/50 blur-3xl" />
