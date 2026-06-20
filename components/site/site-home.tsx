@@ -488,10 +488,9 @@ export function SiteHome({ locale }: { locale: Locale }) {
           <div className="mt-10 text-center">
             <Link
               href={locale === "es" ? "/es/network" : "/network"}
-              aria-label={`${ui.learnMoreAbout} ${nav.networkServices}`}
               className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-brand-red transition-opacity hover:opacity-70"
             >
-              {ui.learnMore}
+              {ui.learnMoreAbout} {nav.networkServices}
               <ArrowRight
                 className="h-4 w-4 transition-transform group-hover:translate-x-1"
                 aria-hidden="true"
