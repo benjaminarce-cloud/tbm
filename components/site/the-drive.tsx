@@ -127,7 +127,7 @@ function DriveScene({ eyebrow, headline, body, stages }: TheDriveProps) {
 
         {/* Header — same words, new stage */}
         <div className="relative z-10 mx-auto w-full max-w-screen-2xl px-4 pt-16 md:px-8 md:pt-20">
-          <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-brand-red md:text-xs md:tracking-[0.25em]">
+          <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-brand-red-bright md:text-xs md:tracking-[0.25em]">
             {eyebrow}
           </p>
           <h2 className="mt-2 max-w-2xl font-display text-[1.45rem] font-extrabold leading-tight tracking-tight sm:text-display-sm md:mt-3 md:text-display-md">
@@ -226,7 +226,7 @@ function DriveScene({ eyebrow, headline, body, stages }: TheDriveProps) {
                       : "border-white/10"
                   )}
                 >
-                  <span className="font-display text-[11px] font-extrabold tracking-[0.3em] text-brand-red md:text-xs">
+                  <span className="font-display text-[11px] font-extrabold tracking-[0.3em] text-brand-red-bright md:text-xs">
                     {stage.n}
                   </span>
                   <h3 className="mt-2 font-display text-lg font-extrabold uppercase tracking-wider md:text-xl">

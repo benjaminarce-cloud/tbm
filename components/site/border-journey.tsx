@@ -62,7 +62,7 @@ export function BorderJourney({
 
       <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red-bright">
             {eyebrow}
           </p>
           <TextReveal
@@ -126,7 +126,7 @@ export function BorderJourney({
                       y={36}
                       className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm transition-colors duration-300 hover:border-brand-red/40 sm:p-7 md:p-8"
                     >
-                      <span className="font-display text-sm font-extrabold tracking-[0.3em] text-brand-red">
+                      <span className="font-display text-sm font-extrabold tracking-[0.3em] text-brand-red-bright">
                         {stage.n}
                       </span>
                       <h3 className="mt-3 font-heading text-xl font-extrabold uppercase tracking-wider md:text-2xl">

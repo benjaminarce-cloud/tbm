@@ -22,7 +22,7 @@ export function CtaBand({ eyebrow = "Ready when you are", title, body }: CtaBand
         <div className="grain-layer absolute inset-0 opacity-[0.06] mix-blend-overlay" />
       </div>
       <Reveal className="mx-auto flex max-w-3xl flex-col items-center px-4 text-center md:px-8">
-        <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
+        <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red-bright">
           {eyebrow}
         </p>
         <h2 className="mt-3 font-heading text-display-sm font-extrabold tracking-tight text-balance sm:text-display-md">
@@ -39,7 +39,7 @@ export function CtaBand({ eyebrow = "Ready when you are", title, body }: CtaBand
             Contact Sales
           </ContactSalesLink>
           <TrackShipmentLink className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 text-base font-medium text-white transition-all hover:border-brand-red hover:bg-white/10 active:scale-[0.98]">
-            <Truck className="h-4 w-4 text-brand-red" aria-hidden="true" />
+            <Truck className="h-4 w-4 text-brand-red-bright" aria-hidden="true" />
             Track Shipment
           </TrackShipmentLink>
         </div>

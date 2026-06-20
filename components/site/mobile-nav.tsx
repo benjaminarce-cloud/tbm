@@ -143,7 +143,7 @@ export function MobileNav() {
                     aria-hidden="true"
                     className={cn(
                       "w-8 shrink-0 font-display text-xs font-extrabold tracking-[0.2em] transition-colors",
-                      isActive ? "text-brand-red" : "text-white/30 group-hover/m:text-brand-red"
+                      isActive ? "text-brand-red-bright" : "text-white/30 group-hover/m:text-brand-red-bright"
                     )}
                   >
                     {String(i + 1).padStart(2, "0")}
@@ -165,7 +165,7 @@ export function MobileNav() {
                   </span>
                   <ArrowUpRight
                     className={cn(
-                      "ml-auto h-6 w-6 shrink-0 text-brand-red transition-all duration-300",
+                      "ml-auto h-6 w-6 shrink-0 text-brand-red-bright transition-all duration-300",
                       isActive
                         ? "translate-x-0 opacity-100"
                         : "-translate-x-2 opacity-0 group-hover/m:translate-x-0 group-hover/m:opacity-100"
@@ -247,7 +247,7 @@ export function MobileNav() {
                 href={telHref(OFFICES[0].phones[0])}
                 className="flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.03] px-3 text-sm text-fg-subtle transition-colors hover:border-white/30 hover:text-white"
               >
-                <Phone className="h-3.5 w-3.5 shrink-0 text-brand-red" aria-hidden="true" />
+                <Phone className="h-3.5 w-3.5 shrink-0 text-brand-red-bright" aria-hidden="true" />
                 <span className="font-semibold text-white/90">US</span>
                 <span className="truncate tabular-nums">{OFFICES[0].phones[0]}</span>
               </a>
@@ -255,7 +255,7 @@ export function MobileNav() {
                 href={telHref(OFFICES[1].phones[0])}
                 className="flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.03] px-3 text-sm text-fg-subtle transition-colors hover:border-white/30 hover:text-white"
               >
-                <Phone className="h-3.5 w-3.5 shrink-0 text-brand-red" aria-hidden="true" />
+                <Phone className="h-3.5 w-3.5 shrink-0 text-brand-red-bright" aria-hidden="true" />
                 <span className="font-semibold text-white/90">MX</span>
                 <span className="truncate tabular-nums">{OFFICES[1].phones[0]}</span>
               </a>

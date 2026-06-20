@@ -39,7 +39,7 @@ export function Footer() {
             />
             <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
               <div className="max-w-md">
-                <span className="inline-flex items-center gap-2 rounded-full border border-brand-red/30 bg-brand-red/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-red">
+                <span className="inline-flex items-center gap-2 rounded-full border border-brand-red/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-red-bright">
                   {ui.footerCtaEyebrow} {SITE.foundedYear}
                 </span>
                 <h2 className="mt-4 font-heading text-display-sm font-extrabold leading-tight">
@@ -56,7 +56,7 @@ export function Footer() {
                   {ui.contactSales}
                 </ContactSalesLink>
                 <TrackShipmentLink className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.04] px-7 text-base font-medium text-white transition-all hover:border-brand-red hover:bg-white/[0.08] active:scale-[0.98]">
-                  <Truck className="h-4 w-4 text-brand-red" aria-hidden="true" />
+                  <Truck className="h-4 w-4 text-brand-red-bright" aria-hidden="true" />
                   {ui.trackShipment}
                 </TrackShipmentLink>
               </div>
@@ -90,7 +90,7 @@ export function Footer() {
 
         {OFFICES.map((office, i) => (
           <div key={office.region}>
-            <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-brand-red">
+            <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-brand-red-bright">
               <Image
                 src={i === 0 ? "/brand/eua-flag-tbm.jpg" : "/brand/mx-flag-tbm.jpg"}
                 alt=""
@@ -115,7 +115,7 @@ export function Footer() {
                     href={telHref(phone)}
                     className="inline-flex items-center gap-2 text-fg-subtle transition-colors hover:text-white"
                   >
-                    <Phone className="h-3.5 w-3.5 text-brand-red/70" aria-hidden="true" />
+                    <Phone className="h-3.5 w-3.5 text-brand-red-bright/70" aria-hidden="true" />
                     <span className="tabular-nums">{phone}</span>
                   </a>
                 </li>
@@ -125,20 +125,20 @@ export function Footer() {
         ))}
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-brand-red">
+          <p className="text-xs font-semibold uppercase tracking-widest text-brand-red-bright">
             {ui.footerNavHeading}
           </p>
           <ul className="mt-3 space-y-2 text-sm">
             <FooterNavItems />
             <li>
               <TrackShipmentLink className="group inline-flex items-center gap-2 text-fg-subtle transition-colors hover:text-white">
-                <Truck className="h-3.5 w-3.5 text-brand-red" aria-hidden="true" />
+                <Truck className="h-3.5 w-3.5 text-brand-red-bright" aria-hidden="true" />
                 {ui.trackShipment}
               </TrackShipmentLink>
             </li>
             <li>
               <ContactSalesLink className="group inline-flex items-center gap-2 text-fg-subtle transition-colors hover:text-white">
-                <Mail className="h-3.5 w-3.5 text-brand-red" aria-hidden="true" />
+                <Mail className="h-3.5 w-3.5 text-brand-red-bright" aria-hidden="true" />
                 {ui.contactSales}
               </ContactSalesLink>
             </li>

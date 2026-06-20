@@ -129,7 +129,7 @@ export function ContactOverlay() {
 
             {/* Headline — same words as the contact page */}
             <div className="mt-10 md:mt-14">
-              <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
+              <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red-bright">
                 {ui.contactEyebrow}
               </p>
               <Dialog.Title className="mt-3 max-w-3xl font-heading text-display-md font-black leading-[0.95] tracking-[-0.02em]">
@@ -147,7 +147,7 @@ export function ContactOverlay() {
                 {ui.contactSales}
               </ContactSalesLink>
               <TrackShipmentLink className="inline-flex h-13 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.04] px-8 text-base font-medium text-white backdrop-blur-sm transition-all hover:border-brand-red hover:bg-white/[0.08] active:scale-[0.98]">
-                <Truck className="h-4 w-4 text-brand-red" aria-hidden="true" />
+                <Truck className="h-4 w-4 text-brand-red-bright" aria-hidden="true" />
                 {ui.trackShipment}
               </TrackShipmentLink>
             </div>
@@ -159,7 +159,7 @@ export function ContactOverlay() {
                   key={office.region}
                   className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm"
                 >
-                  <p className="flex items-center gap-2.5 text-xs font-semibold uppercase tracking-widest text-brand-red">
+                  <p className="flex items-center gap-2.5 text-xs font-semibold uppercase tracking-widest text-brand-red-bright">
                     <Image
                       src={
                         i === 0
@@ -191,10 +191,10 @@ export function ContactOverlay() {
                       >
                         <a
                           href={telHref(p)}
-                          className="inline-flex items-center gap-2 font-medium tabular-nums transition-colors hover:text-brand-red"
+                          className="inline-flex items-center gap-2 font-medium tabular-nums transition-colors hover:text-brand-red-bright"
                         >
                           <Phone
-                            className="h-3.5 w-3.5 text-brand-red"
+                            className="h-3.5 w-3.5 text-brand-red-bright"
                             aria-hidden="true"
                           />
                           {p}

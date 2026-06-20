@@ -64,7 +64,7 @@ export function ServiceGrid({ variant = "bento", className }: ServiceGridProps) 
               className="h-16 w-16 object-contain"
             />
           </div>
-          <p className="mt-8 text-xs font-semibold uppercase tracking-[0.25em] text-brand-red">
+          <p className="mt-8 text-xs font-semibold uppercase tracking-[0.25em] text-brand-red-bright">
             {c.ui.featuredService}
           </p>
           <h3 className="mt-3 max-w-md font-heading text-3xl font-extrabold uppercase tracking-wider text-balance md:text-4xl">
@@ -73,7 +73,7 @@ export function ServiceGrid({ variant = "bento", className }: ServiceGridProps) 
           <p className="mt-4 max-w-md text-base leading-relaxed text-fg-subtle md:text-lg">
             {feature.full ?? feature.short}
           </p>
-          <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wider text-brand-red transition-colors group-hover/lm:text-[#ff8a6e]">
+          <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wider text-brand-red-bright transition-colors group-hover/lm:text-[#ff8a6e]">
             {c.ui.learnMore}
             <ArrowRight
               className="h-4 w-4 transition-transform group-hover/lm:translate-x-1"

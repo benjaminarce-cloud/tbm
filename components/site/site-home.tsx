@@ -403,7 +403,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
         </div>
         <div className="relative mx-auto flex max-w-screen-2xl flex-col items-center px-4 py-20 text-center text-white md:py-28 md:px-8">
           <Reveal>
-            <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
+            <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red-bright">
               {HOME.texasBand.eyebrow}
             </p>
             <h2 className="mt-4 mx-auto max-w-3xl font-heading text-display-sm font-extrabold tracking-tight text-balance sm:text-display-md">
@@ -428,7 +428,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
       <section className="bg-brand-indigo py-16 text-white md:py-24 lg:py-32">
         <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
           <Reveal>
-            <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
+            <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red-bright">
               {HOME.howItWorks.eyebrow}
             </p>
             <h2 className="mt-3 max-w-2xl font-heading text-display-sm font-extrabold tracking-tight text-balance sm:text-display-md">
@@ -681,7 +681,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
         </div>
         <div className="mx-auto w-full max-w-screen-2xl px-4 md:px-8">
           <Reveal className="text-center">
-            <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
+            <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red-bright">
               Partners & Certifications
             </p>
             <TextReveal
@@ -798,7 +798,7 @@ export function SiteHome({ locale }: { locale: Locale }) {
         </div>
         <div className="relative mx-auto flex max-w-screen-2xl flex-col items-center px-4 py-24 text-center text-white md:px-8 md:py-32">
           <Reveal>
-            <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
+            <p className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red-bright">
               {HOME.finalCta.eyebrow}
             </p>
             <h2 className="mt-4 max-w-3xl font-heading text-display-sm font-extrabold tracking-tight text-balance sm:text-display-md">
