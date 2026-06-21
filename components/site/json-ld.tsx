@@ -54,6 +54,7 @@ export function JsonLd() {
         url,
         logo: { "@type": "ImageObject", url: logo, width: 512, height: 512 },
         image,
+        sameAs: SITE.sameAs,
         description: SITE.description,
         slogan: SITE.tagline,
         foundingDate: String(SITE.foundedYear),
