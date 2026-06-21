@@ -35,6 +35,19 @@ export function JsonLd() {
     addressCountry: "MX",
   } as const;
 
+  // Office coordinates, geocoded from the addresses via OpenStreetMap. US is
+  // building-exact; MX is street-level on Av. Madero (21000) — confirm the pin.
+  const usGeo = {
+    "@type": "GeoCoordinates",
+    latitude: 29.5708399,
+    longitude: -98.5975745,
+  } as const;
+  const mxGeo = {
+    "@type": "GeoCoordinates",
+    latitude: 32.6670606,
+    longitude: -115.4564085,
+  } as const;
+
   const services = [
     "Cross-border freight (US–Mexico–Canada)",
     "Border crossing & customs coordination",
@@ -103,6 +116,7 @@ export function JsonLd() {
         telephone: OFFICES[0].phones[0],
         email: SITE.email,
         address: usAddress,
+        geo: usGeo,
         areaServed: ["US", "MX", "CA"],
       },
       {
@@ -115,6 +129,7 @@ export function JsonLd() {
         logo,
         telephone: OFFICES[1].phones[0],
         address: mxAddress,
+        geo: mxGeo,
         areaServed: ["MX", "US"],
       },
       {
